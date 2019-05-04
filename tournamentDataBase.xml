@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tournamentList>
+	<tournament>
+		<name>AusOpen1</name>
+		<date>27.01.2019</date>
+		<sport>Tennis</sport>
+		<prize>3187190</prize>
+		<winner>
+			<firstName>Новак</firstName>
+			<lastName>Джокович</lastName>
+			<income></income>
+		</winner>
+	</tournament>
+
+	<tournament>
+		<name>AusOpen2</name>
+		<date>25.01.2019</date>
+		<sport>Tennis</sport>
+		<prize>1116000</prize>
+		<winner>
+			<firstName>Таро</firstName>
+			<lastName>Дэниэл</lastName>
+			<income></income>
+		</winner>
+	</tournament>
+
+	<tournament>
+		<name>AusOpen3</name>
+		<date>23.01.2019</date>
+		<sport>Tennis</sport>
+		<prize>452200</prize>
+		<winner>
+			<firstName>Денис</firstName>
+			<lastName>Шаповалов</lastName>
+			<income></income>
+		</winner>
+	</tournament>
+
+	<tournament>
+		<name>AusOpen4</name>
+		<date>21.01.2019</date>
+		<sport>Tennis</sport>
+		<prize>15160</prize>
+		<winner>
+			<firstName>Давид</firstName>
+			<lastName>Гоффен</lastName>
+			<income></income>
+		</winner>
+	</tournament>
+</tournamentList>
