@@ -7,24 +7,27 @@ public class TournamentDataBase {
 	private List<Tournament> recordList;
 	
 	public TournamentDataBase() {
-		recordList = new ArrayList<>();
+		this.recordList = new ArrayList<>();
 	}
 	
 	public void addRecord(Tournament record) {
         recordList.add(record);
     }
 	
-	public List<Tournament> getRecordOfTournaments() {
-        return recordList;
-    }
-	
-	public void DataBase(List<Tournament> listData) {
+	public void reInitDataBase(List<Tournament> listData) {
         for (Tournament tournament : listData) {
             addRecord(tournament);
         }
     }
+	public List<Tournament> getRecordList() {
+        return recordList;
+    }
 	
-	public void deleteRecords() {
+	public void setRecordList(List<Tournament> listData) {
+		this.recordList = new ArrayList<>(listData);
+	}
+	
+	public void removeAllTournaments() {
         recordList.clear();
     }
 	

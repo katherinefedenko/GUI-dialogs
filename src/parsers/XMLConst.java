@@ -1,4 +1,4 @@
-package xml;
+package parsers;
 
 public class XMLConst {
 	static final String TOURNAMENT_LIST = "tournamentList";

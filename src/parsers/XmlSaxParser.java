@@ -1,4 +1,4 @@
-package xml;
+package parsers;
 
 import org.xml.sax.helpers.DefaultHandler;
 
@@ -17,21 +17,10 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
 import org.xml.sax.*; 
-
-public class XmlSaxParser {
-	private static List<Tournament> tournamentList = new ArrayList<>();
-	private static Tournament tournament;
 	
-	public List<Tournament> getTournamentList() throws ParserConfigurationException, SAXException, IOException{
-		SAXParserFactory factory = SAXParserFactory.newInstance();
-        SAXParser saxParser = factory.newSAXParser();
-        XMLHandler handler = new XMLHandler();
-   	 	File file = new File("G:\\Downloads\\eclipse-workspace\\Dialog UI\\tournamentDataBase.xml");
-        saxParser.parse(file, handler);
-		return tournamentList;
-	}
-	
-	private static class XMLHandler extends DefaultHandler {
+	public class XmlSaxParser extends DefaultHandler {
+		private List<Tournament> tournamentList = new ArrayList<>();
+		private Tournament tournament;
 		private String name;
 		//private LocalDate date;
 		private String date;
@@ -43,13 +32,13 @@ public class XmlSaxParser {
 		
 		@Override 
 		public void startDocument() throws SAXException { 
-		  //System.out.println("Start parse XML..."); 
+		  System.out.println("Start parse XML..."); 
 		} 
 		
 		@Override
         public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
             lastElementName = qName;
-            //System.out.println("Start Element :" + qName);
+            System.out.println("Start Element :" + qName);
         }
 		
 		@Override
@@ -57,13 +46,13 @@ public class XmlSaxParser {
             String content = new String(ch, start, length);
             content = content.replace("\n", "").trim();
             if (!content.isEmpty()) {
-                if (lastElementName.equals(xml.XMLConst.NAME))
+                if (lastElementName.equals(parsers.XMLConst.NAME))
                 	name = content;
-                else if (lastElementName.equals(xml.XMLConst.DATE))
+                else if (lastElementName.equals(parsers.XMLConst.DATE))
                 	date = content;
-                else if (lastElementName.equals(xml.XMLConst.SPORT))
+                else if (lastElementName.equals(parsers.XMLConst.SPORT))
                 	sport = content;
-                else if (lastElementName.equals(xml.XMLConst.PRIZE))
+                else if (lastElementName.equals(parsers.XMLConst.PRIZE))
                 	prizeAmount = new Integer(content);
                 		
                 /*if (lastElementName.equals(xml.XMLConst.FIRST_NAME))
@@ -89,10 +78,15 @@ public class XmlSaxParser {
             		date = null;
             		sport = null;
             		prizeAmount = 0;
-             
+            		
+         
                }
                else return;
 		}
+		
+		public List<Tournament> getTournamentList() {
+			return tournamentList;
+		}
 	}
-}
+
 	
