@@ -32,13 +32,13 @@ import org.xml.sax.*;
 		
 		@Override 
 		public void startDocument() throws SAXException { 
-		  System.out.println("Start parse XML..."); 
+		  //System.out.println("Start parse XML..."); 
 		} 
 		
 		@Override
         public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
             lastElementName = qName;
-            System.out.println("Start Element :" + qName);
+            //System.out.println("Start Element :" + qName);
         }
 		
 		@Override

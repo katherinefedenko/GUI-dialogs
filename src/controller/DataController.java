@@ -29,8 +29,11 @@ public class DataController {
     	this.dataBase = dataBase;
     }
     
-    public void addTournament(Tournament newTournament){
-        dataBase.addRecord(newTournament);
+    public void addTournament(String tournament, String sport, int prize, String date){
+    	//dataBase.addRecord();
+    	List<Tournament> addTournament = dataBase.getRecordList();
+    	addTournament.add(new Tournament(tournament, sport, prize, date));
+    	dataBase.setRecordList(addTournament);
     }
     
     public boolean save(File file) {
@@ -47,17 +50,12 @@ public class DataController {
    
     
     public void open(File file) throws ParserConfigurationException, SAXException, IOException {
-        
-        	System.out.println("Open."); 
             SAXParserFactory factory = SAXParserFactory.newInstance();
             SAXParser parser = factory.newSAXParser();
             XmlSaxParser saxParser = new XmlSaxParser();
             parser.parse(file, saxParser);
-            
             dataBase.setRecordList(saxParser.getTournamentList());
-            System.out.println(dataBase.getRecordList());
             //return saxParser.getTournamentList();
-        
     }
     
     public void cleardDB(){

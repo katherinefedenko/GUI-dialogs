@@ -10,12 +10,6 @@ public class Tournament {
 	private int prizeAmount;
 	private Winner winner;
 
-	/*public Tournament() {
-		name = "k";
-		//date = LocalDate.of(2000, 1, 1);
-		sport = "t";
-		prizeAmount = 0;
-	}*/
 	public Tournament(String name, String sport, int prizeAmount, String date) {
 		this.name = name;
 		this.sport = sport;

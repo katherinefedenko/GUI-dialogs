@@ -50,33 +50,11 @@ public class MenuBar {
 				controller.open(fileOpen);
 				
 			} catch (SAXException | ParserConfigurationException | IOException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 	    }
 	});
-	/*openItem.addSelectionListener(new SelectionAdapter() {
-        MessageBox messageBox = new MessageBox(shell);
-
-        @Override
-        public void widgetSelected(SelectionEvent selectionEvent) {
-            File file;
-            System.out.println("Open."); 
-            try {
-                file = new File(openFileDialog("Open"));
-                //controller.open(file);
-            } catch (NullPointerException ex) {
-                return;
-            }
-            if (!controller.open(file)) {
-                messageBox.setMessage("Ошибка при открытии");
-                messageBox.open();
-            } 
-        }
-
-		
-    });*/
-		
+			
 	MenuItem saveItem = new MenuItem(menuBar, SWT.PUSH);
 	saveItem.setText("Save");
 	
@@ -90,7 +68,7 @@ public class MenuBar {
 	deleteItem.setText("Delete");
 	
 	}
-	private String openFileDialog(String type) {
+	/*private String openFileDialog(String type) {
         FileDialog fileDialog = new FileDialog(shell, "Save".equals(type) ? SWT.SAVE : SWT.OPEN);
         fileDialog.setText(type);
         fileDialog.setFilterPath("C:/");
@@ -98,5 +76,5 @@ public class MenuBar {
         filterExst[0] = "*.xml";
         fileDialog.setFilterExtensions(filterExst); 
         return fileDialog.open();
-    }
+    }*/
 }
