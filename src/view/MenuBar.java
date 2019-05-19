@@ -11,6 +11,7 @@ import org.eclipse.swt.widgets.*;
 
 
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
 
 import org.xml.sax.SAXException;
 
@@ -58,6 +59,21 @@ public class MenuBar {
 	MenuItem saveItem = new MenuItem(menuBar, SWT.PUSH);
 	saveItem.setText("Save");
 	
+	saveItem.addListener (SWT.Selection, new Listener () {
+		@Override
+	    public void handleEvent (Event e) {
+			FileDialog dialogOpen = new FileDialog(shell, SWT.OPEN);
+			String fileNameOpen = dialogOpen.open();
+			File fileOpen = new File(fileNameOpen);
+			try {
+				controller.save(fileOpen);
+			} catch (TransformerException | ParserConfigurationException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+	    }
+	});
+	
 	MenuItem addItem = new MenuItem(menuBar, SWT.PUSH);
 	addItem.setText("Add");
 	
@@ -68,13 +84,4 @@ public class MenuBar {
 	deleteItem.setText("Delete");
 	
 	}
-	/*private String openFileDialog(String type) {
-        FileDialog fileDialog = new FileDialog(shell, "Save".equals(type) ? SWT.SAVE : SWT.OPEN);
-        fileDialog.setText(type);
-        fileDialog.setFilterPath("C:/");
-        String[] filterExst = new String[1];
-        filterExst[0] = "*.xml";
-        fileDialog.setFilterExtensions(filterExst); 
-        return fileDialog.open();
-    }*/
 }

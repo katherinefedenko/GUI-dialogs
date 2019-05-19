@@ -61,7 +61,7 @@ public class XmlDomParser {
                 prizeAmount.setTextContent(Integer.toString(tournament.getPrizeAmount()));
                 node.appendChild(prizeAmount);
                 
-                Element win = document.createElement(parsers.XMLConst.WINNER);
+                /*Element win = document.createElement(parsers.XMLConst.WINNER);
                 node.appendChild(win);
                 
                 Element firstName = document.createElement(parsers.XMLConst.FIRST_NAME);
@@ -74,7 +74,7 @@ public class XmlDomParser {
                 
                 Element income = document.createElement(parsers.XMLConst.INCOME);
                 income.setTextContent(Integer.toString(winner.getIncome()));
-                win.appendChild(income);
+                win.appendChild(income);*/
             }
             Transformer transformer = TransformerFactory.newInstance().newTransformer();
             DOMSource domSource = new DOMSource(document);

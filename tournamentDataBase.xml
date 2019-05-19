@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tournamentList>
 	<tournament>
-		<name>AusOpen1</name>
+		<name>AusOpen</name>
 		<date>27.01.2019</date>
 		<sport>Tennis</sport>
 		<prize>3187190</prize>
@@ -11,9 +11,32 @@
 			<income></income>
 		</winner>
 	</tournament>
-
 	<tournament>
-		<name>AusOpen2</name>
+		<name>Aus</name>
+		<date>19.05.2019</date>
+		<sport>Tennis</sport>
+		<prize>3187190</prize>
+		<winner>
+			<firstName>Новак</firstName>
+			<lastName>Джокович</lastName>
+			<income></income>
+		</winner>
+	</tournament>
+
+<tournament>
+		<name>Олимпийские игры 2018</name>
+		<date>25.01.2018</date>
+		<sport>Биатлон</sport>
+		<prize>1116000</prize>
+		<winner>
+			<firstName>Арнд</firstName>
+			<lastName>Пайфффер</lastName>
+			<income></income>
+		</winner>
+	</tournament>
+	
+	<tournament>
+		<name>AusOpen</name>
 		<date>25.01.2019</date>
 		<sport>Tennis</sport>
 		<prize>1116000</prize>
@@ -23,9 +46,45 @@
 			<income></income>
 		</winner>
 	</tournament>
-
+	
 	<tournament>
-		<name>AusOpen3</name>
+		<name>Олимпийские игры 2018</name>
+		<date>18.03.2018</date>
+		<sport>Бобслей</sport>
+		<prize>1116000</prize>
+		<winner>
+			<firstName>Джастин</firstName>
+			<lastName>Криппс</lastName>
+			<income></income>
+		</winner>
+	</tournament>
+
+<tournament>
+		<name>Олимпийские игры 2018</name>
+		<date>23.01.2019</date>
+		<sport>Горные лыжи</sport>
+		<prize>452200</prize>
+		<winner>
+			<firstName>Аксель</firstName>
+			<lastName>Лунд</lastName>
+			<income></income>
+		</winner>
+	</tournament>
+	
+	<tournament>
+		<name>Олимпийские игры 2018</name>
+		<date>23.01.2019</date>
+		<sport>Керлинг</sport>
+		<prize>452200</prize>
+		<winner>
+			<firstName>Джон</firstName>
+			<lastName>Шустер</lastName>
+			<income></income>
+		</winner>
+	</tournament>
+	
+	<tournament>
+		<name>AusOpen</name>
 		<date>23.01.2019</date>
 		<sport>Tennis</sport>
 		<prize>452200</prize>
@@ -37,7 +96,7 @@
 	</tournament>
 
 	<tournament>
-		<name>AusOpen4</name>
+		<name>AusOpen</name>
 		<date>21.01.2019</date>
 		<sport>Tennis</sport>
 		<prize>15160</prize>

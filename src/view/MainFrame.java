@@ -45,9 +45,8 @@ public class MainFrame {
 		createMainWindow();
 	}
     public void createMainWindow() {
-    	
-    	shell.setText("Second lab");
-        shell.setSize(700, 700);
+    	shell.setText("Dialog UI");
+        shell.setSize(1000, 500);
     
         RowLayout rowLayout = new RowLayout();
         rowLayout.spacing = 10;
@@ -57,7 +56,6 @@ public class MainFrame {
 
         new TableComponent(shell, controller);
         new MenuBar(shell, controller);
-        
         
         shell.open();
 
