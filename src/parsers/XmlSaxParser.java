@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -20,6 +21,7 @@ import org.xml.sax.*;
 	
 	public class XmlSaxParser extends DefaultHandler {
 		private List<Tournament> tournamentList = new ArrayList<>();
+		private List<Winner> winnerList = new ArrayList<>();
 		private Tournament tournament;
 		private String name;
 		//private LocalDate date;
@@ -29,6 +31,7 @@ import org.xml.sax.*;
 		private String firstName;
 		private String lastName;
 		private String lastElementName;
+		private int income;
 		
 		@Override 
 		public void startDocument() throws SAXException { 
@@ -54,14 +57,12 @@ import org.xml.sax.*;
                 	sport = content;
                 else if (lastElementName.equals(parsers.XMLConst.PRIZE))
                 	prizeAmount = new Integer(content);
-                		
-                /*if (lastElementName.equals(xml.XMLConst.FIRST_NAME))
-                    firstName = content;
-                if (lastElementName.equals(xml.XMLConst.LAST_NAME))
+                else if (lastElementName.equals(parsers.XMLConst.FIRST_NAME))
+                	firstName = content;
+                else if (lastElementName.equals(parsers.XMLConst.LAST_NAME))
                     lastName = content;
-                 if (lastElementName.equals(xml.XMLConst.INCOME))
-                    income = content;
-                   */ 
+                else if (lastElementName.equals(parsers.XMLConst.INCOME))
+                    income = new Integer(content);
            
             }
 		}
@@ -69,23 +70,30 @@ import org.xml.sax.*;
         public void endElement(String uri, String localName, String qName) throws SAXException {
             if ((name != null && !name.isEmpty()) 
             	&& 	(sport != null && !sport.isEmpty()) 
+            	&&	(prizeAmount != 0)
+            	&& 	(firstName != null && !firstName.isEmpty())
+                && 	(lastName != null && !lastName.isEmpty())
             	&&	(prizeAmount != 0))
-            	/*&& (firstName != null && !firstName.isEmpty())
-                    && (lastName != null && !lastName.isEmpty()));*/
                {
             		tournamentList.add(new Tournament(name, sport, prizeAmount, date));
+            		winnerList.add(new Winner(firstName, lastName, income));
             		name = null;
             		date = null;
             		sport = null;
             		prizeAmount = 0;
-            		
-         
+            		firstName = null;
+            		lastName = null;
+            		income = 0;
                }
                else return;
 		}
 		
 		public List<Tournament> getTournamentList() {
 			return tournamentList;
+		}
+		
+		public List<Winner> getWinnerList() {
+			return winnerList;
 		}
 	}
 

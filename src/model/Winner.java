@@ -5,10 +5,10 @@ public class Winner {
 	private String lastName;
 	private int income;
 
-	public Winner() {
-		firstName = "";
-		lastName = "";
-		income = 0;
+	public Winner(String firstName, String lastName, int income) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.income = income;
 	}
 
 	public String getFirstName() {

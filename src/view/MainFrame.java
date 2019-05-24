@@ -11,6 +11,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.layout.RowData;
 import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
@@ -34,10 +35,11 @@ public class MainFrame {
 	
 	private Display display = new Display();
     private Shell shell = new Shell(display, SWT.SHELL_TRIM | SWT.CENTER);
-    private TableComponent table;
+    private DispalyComponents table;
     private TournamentDataBase dataBase;
     private File file;
     private DataController controller;
+    private String[] tableTitles = {"Tournament", "Date", "Sport", "Winner", "Prize", "Income"};
     
     public MainFrame(DataController controller) {
     	
@@ -46,16 +48,24 @@ public class MainFrame {
 	}
     public void createMainWindow() {
     	shell.setText("Dialog UI");
-        shell.setSize(1000, 500);
-    
-        RowLayout rowLayout = new RowLayout();
-        rowLayout.spacing = 10;
-        rowLayout.marginLeft = 10;
-        rowLayout.marginTop = 10;
-        shell.setLayout(rowLayout);
+    	shell.setBounds(150, 100, 1000, 600);
+        
+        Table table = new Table(shell, SWT.MULTI | SWT.BORDER | SWT.FULL_SELECTION);
+		table.setBounds(10, 15, 910, 400);
+		table.setLinesVisible(true);
+		table.setHeaderVisible(true);
+ 
+        
+        for (int currTitle = 0; currTitle < tableTitles.length; currTitle++)
+		{
+			TableColumn column = new TableColumn(table, SWT.CENTER);
+			column.setWidth(150);
+			column.setText(tableTitles[currTitle]);
+			column.setResizable(false);
+		}
 
-        new TableComponent(shell, controller);
-        new MenuBar(shell, controller);
+        new DispalyComponents(shell, controller, table);
+        new MenuBar(shell, controller, table);
         
         shell.open();
 

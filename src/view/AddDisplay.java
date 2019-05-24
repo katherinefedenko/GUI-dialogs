@@ -9,6 +9,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Text;
 
 import controller.DataController;
@@ -18,10 +19,16 @@ public class AddDisplay {
 	private Display display;
 	private DataController controller;
 	private Shell shell;
+	private Shell mainShell;
+	private Table table;
+	private PageRecords pageRecords;
 
-	public AddDisplay(Display display, DataController controller) {
+	public AddDisplay(Display display, DataController controller, Shell mainShell, Table table) {
+		this.mainShell = mainShell;
+		this.table = table;
 		this.display = display;
 		this.controller = controller;
+		
 		shell = new Shell(display, SWT.TITLE | SWT.CLOSE );
 		GridLayout gridLayout = new GridLayout();
         gridLayout.marginLeft  = 10;
@@ -34,6 +41,7 @@ public class AddDisplay {
         shell.open();
 	}
 	
+
 	public void addDisplay() {
 		Label labelTournament = new Label (shell, SWT.NONE);
 		labelTournament.setText("Tournament:");
@@ -70,6 +78,8 @@ public class AddDisplay {
 				int prize = Integer.parseInt(textPrize.getText());
 				String income = textIncome.getText();
 				controller.addTournament(tournament, sport, prize, date);
+				PageRecords pageRecords = new PageRecords();
+				pageRecords.fillTable(mainShell, controller.getListOfTournaments(), table);
 				textTournament.setText("");
 				textDate.setText("");
 				textSport.setText("");

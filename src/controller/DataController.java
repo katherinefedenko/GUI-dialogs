@@ -41,6 +41,7 @@ public class DataController {
 		XmlSaxParser saxParser = new XmlSaxParser();
 		parser.parse(file, saxParser);
 		dataBase.setRecordList(saxParser.getTournamentList());
+		//dataBase.setRecordList(saxParser.getWinnerList());
 	}
 
 	public void save(File file) throws TransformerException, ParserConfigurationException {
@@ -60,28 +61,39 @@ public class DataController {
 		return tournamentSearch;
 	}
 	
-	public void findBySport(String findSport) {
+	public List<Tournament> findBySport(String findSport) {
 		List<Tournament> tournamentSearch = new ArrayList<>();
 		for (Tournament tournament : dataBase.getRecordList()) {
 			if (findSport.equals(tournament.getSport())) {
 				tournamentSearch.add(tournament);	
 			}
 		}
-		dataBase.reInitDataBase(tournamentSearch);
+		//	dataBase.reInitDataBase(tournamentSearch);
+		return tournamentSearch;
 		
 	}
 	
-	public void findByTournamentName(int findPrize) {
+	public List<Tournament> findByPrize(int findPrize) {
 		List<Tournament> tournamentSearch = new ArrayList<>();
 		for (Tournament tournament : dataBase.getRecordList()) {
 			if (findPrize == tournament.getPrizeAmount()) {
 				tournamentSearch.add(tournament);	
 			}
 		}
-		dataBase.reInitDataBase(tournamentSearch);
+		//	dataBase.reInitDataBase(tournamentSearch);
+		return tournamentSearch;
 		
 	}
 
+	public int removeStudent(List<Tournament> delTournament) {
+		List<Tournament> newTournament = dataBase.getRecordList();
+		int size = newTournament.size();
+		for (Tournament tournament : delTournament) {
+			newTournament.remove(tournament);
+		}
+		dataBase.setRecordList(newTournament);
+		return size - newTournament.size();
+	}	
 	public void cleardDB() {
 		dataBase.removeAllTournaments();
 	}

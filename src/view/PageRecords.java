@@ -18,32 +18,39 @@ import model.Tournament;
 import model.TournamentDataBase;
 
 public class PageRecords {
-	private List<Tournament> tournamentList;
-	private Table table;
-	private String[] tableTitles = {"Tournament", "Date", "Sport", "Winner", "Prize", "Income"};
-	private Shell shell;
-	private Label countRecords;
-	
-	public PageRecords() {        
-  
+	private String[] tableTitles = { "Tournament", "Date", "Sport", "Winner", "Prize", "Income" };
+
+
+	public void fillTable(Shell shell, List<Tournament> tournamentList, Table table) {
+			
+		for (Tournament tournament : tournamentList) {
+			TableItem item = new TableItem(table, SWT.NONE);
+			item.setText(0, tournament.getName());
+			item.setText(1, tournament.getDate());
+			item.setText(2, tournament.getSport());
+			// item.setText(3, tournament.getWinner());
+			item.setText(4, Integer.toString(tournament.getPrizeAmount()));
+			// item.setText(5, winner.getIncome());
+		}
 	}
-	public void createTable(Shell shell, List<Tournament> searchList, Table table) {
-        for (int currTitle = 0; currTitle < tableTitles.length; currTitle++)
-		{
+	
+	public Table createTable(Shell shell) {
+		Table table = new Table(shell, SWT.MULTI | SWT.BORDER | SWT.FULL_SELECTION);
+		table.setBounds(10, 15, 910, 300);
+		table.setLinesVisible(true);
+		table.setHeaderVisible(true);
+
+		for (int currTitle = 0; currTitle < tableTitles.length; currTitle++) {
 			TableColumn column = new TableColumn(table, SWT.CENTER);
 			column.setWidth(150);
 			column.setText(tableTitles[currTitle]);
 			column.setResizable(false);
 		}
-        for(Tournament tournament : searchList) {
-    		TableItem item = new TableItem(table, SWT.NONE);
-    		System.out.println(tournament.getName());
-        	item.setText(0, tournament.getName());
-        	item.setText(1, tournament.getDate());
-        	item.setText(2, tournament.getSport());
-        	//item.setText(3, tournament.getWinner());
-        	item.setText(4, Integer.toString(tournament.getPrizeAmount()));
-        	//item.setText(5, winner.getIncome());
-    	}
+		return table;
+	}
+	
+	public void refresh(Shell shell, Table table){
+		table.dispose();
+        shell.layout(true);
 	}
 }

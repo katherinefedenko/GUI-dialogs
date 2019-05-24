@@ -15,8 +15,8 @@ public class Tournament {
 		this.sport = sport;
 		this.prizeAmount = prizeAmount;
 		this.date = date;
+		//this.winner = winner;
 	}
-
 	/*
 	public LocalDate getDate() {
 		return date;

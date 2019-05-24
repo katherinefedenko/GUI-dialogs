@@ -2,10 +2,13 @@ package view;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.layout.RowData;
 import org.eclipse.swt.widgets.*;
 
 
@@ -16,19 +19,23 @@ import javax.xml.transform.TransformerException;
 import org.xml.sax.SAXException;
 
 import controller.DataController;
+import model.Tournament;
 import model.TournamentDataBase;
-
-
 
 public class MenuBar {
 	
 	private Shell shell;
 	private DataController controller;
-	private TableComponent tableComponent;
+	private DispalyComponents tableComponent;
+	private Table table;
+	private String[] tableTitles = {"Tournament", "Date", "Sport", "Winner", "Prize", "Income"};
+	private List<Tournament> tournamentList;
+	PageRecords pageRecords;
 	 
-	public MenuBar(Shell shell, DataController controller) {
+	public MenuBar(Shell shell, DataController controller, Table table) {
 		this.shell = shell;
 		this.controller = controller;
+		this.table = table;
 		toolBar();
 	}
 	
@@ -41,7 +48,6 @@ public class MenuBar {
 	
 	openItem.addListener (SWT.Selection, new Listener () {
 	    
-
 		@Override
 	    public void handleEvent (Event e) {
 			FileDialog dialogOpen = new FileDialog(shell, SWT.OPEN);
@@ -50,9 +56,15 @@ public class MenuBar {
 			try {
 				controller.open(fileOpen);
 				
+				//tableComponent.showTableItems(controller, table);
+				
 			} catch (SAXException | ParserConfigurationException | IOException e1) {
 				e1.printStackTrace();
 			}
+			
+				pageRecords = new PageRecords();
+				pageRecords.fillTable(shell, controller.getListOfTournaments(), table);
+			
 	    }
 	});
 			
@@ -68,7 +80,6 @@ public class MenuBar {
 			try {
 				controller.save(fileOpen);
 			} catch (TransformerException | ParserConfigurationException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 	    }
