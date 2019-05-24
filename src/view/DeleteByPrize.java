@@ -4,27 +4,20 @@ import java.util.List;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.layout.RowData;
 import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.*;
 
 import controller.DataController;
-import model.TournamentDataBase;
 import model.Tournament;
 
 public class DeleteByPrize {
 	
-		private Display display;
 		private DataController controller;
 		private Shell shell;
-		private String[] tableTitles = { "Tournament", "Date", "Sport", "Winner", "Prize", "Income" };
 		PageRecords pageRecords;
 
 		public DeleteByPrize(Display display, DataController controller) {
 
-			this.display = display;
 			this.controller = controller;
 			shell = new Shell(display, SWT.MAX | SWT.TITLE | SWT.CLOSE | SWT.SHELL_TRIM);
 			RowLayout rowLayout = new RowLayout();
@@ -32,7 +25,7 @@ public class DeleteByPrize {
 			rowLayout.marginLeft = 10;
 			rowLayout.marginTop = 10;
 			shell.setText("Delete record by tournament or date");
-			shell.setSize(1000, 500);
+			shell.setSize(500, 300);
 			shell.setLayout(rowLayout);
 			deleteBySport();
 			shell.open();

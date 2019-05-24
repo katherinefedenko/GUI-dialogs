@@ -3,24 +3,16 @@ package view;
 import java.util.List;
 
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.layout.RowData;
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 
-import controller.DataController;
 import model.Tournament;
-import model.TournamentDataBase;
+
 
 public class PageRecords {
 	private String[] tableTitles = { "Tournament", "Date", "Sport", "Winner", "Prize", "Income" };
-	private DataController controller;
 	
 	public void fillTable(Shell shell, List<Tournament> tournamentList, Table table) {
 		for (Tournament tournament : tournamentList) {
@@ -34,7 +26,7 @@ public class PageRecords {
 		}
 	}
 
-	/*public Table createTable(Shell shell) {
+	public Table createTable(Shell shell) {
 		Table table = new Table(shell, SWT.MULTI | SWT.BORDER | SWT.FULL_SELECTION);
 		table.setBounds(10, 15, 910, 300);
 		table.setLinesVisible(true);
@@ -47,5 +39,5 @@ public class PageRecords {
 			column.setResizable(false);
 		}
 		return table;
-	}*/
+	}
 }

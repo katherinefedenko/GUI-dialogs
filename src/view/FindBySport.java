@@ -5,16 +5,12 @@ import java.util.List;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.layout.RowData;
-import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
-import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Text;
 
 import controller.DataController;
@@ -22,22 +18,16 @@ import model.Tournament;
 
 public class FindBySport {
 
-	private Display display;
 	private DataController controller;
 	private Shell shell;
-	private String[] tableTitles = { "Tournament", "Date", "Sport", "Winner", "Prize", "Income" };
-
+	private Table table;
+	PageRecords pageRecords;
+	
 	public FindBySport(Display display, DataController controller) {
-		this.display = display;
 		this.controller = controller;
 		shell = new Shell(display, SWT.TITLE | SWT.CLOSE);
-		RowLayout rowLayout = new RowLayout();
-		rowLayout.spacing = 10;
-		rowLayout.marginLeft = 10;
-		rowLayout.marginTop = 10;
 		shell.setText("Find record by sport");
-		shell.setSize(1000, 500);
-		shell.setLayout(rowLayout);
+		shell.setBounds(150, 100, 500, 300);
 		findBySport();
 		shell.open();
 	}
@@ -45,25 +35,14 @@ public class FindBySport {
 	public void findBySport() {
 		Label labelSport = new Label(shell, SWT.NONE);
 		labelSport.setText("Sport:");
+		labelSport.setBounds(10, 10, 80, 20);
+		
 		Text textSport = new Text(shell, SWT.BORDER);
+		textSport.setBounds(10, 40, 200, 20);
 
 		Button findButton = new Button(shell, SWT.PUSH);
 		findButton.setText("Find");
-
-		Table table = new Table(shell, SWT.MULTI | SWT.BORDER | SWT.FULL_SELECTION);
-		RowData rowData = new RowData();
-		rowData.height = 250;
-		rowData.width = 900;
-		table.setLayoutData(rowData);
-		table.setLinesVisible(true);
-		table.setHeaderVisible(true);
-
-		for (int currTitle = 0; currTitle < tableTitles.length; currTitle++) {
-			TableColumn column = new TableColumn(table, SWT.CENTER);
-			column.setWidth(150);
-			column.setText(tableTitles[currTitle]);
-			column.setResizable(false);
-		}
+		findButton.setBounds(10, 120, 80, 20);
 
 		findButton.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent arg0) {
@@ -76,8 +55,16 @@ public class FindBySport {
 					messageError.setMessage("No items accoarding your request");
 					messageError.open();
 				} else {
-					PageRecords pageRecords = new PageRecords();
-					pageRecords.fillTable(shell, search, table);
+					if(pageRecords == null) {
+						pageRecords = new PageRecords();
+						shell.setBounds(150, 100, 1000, 600);
+						table = pageRecords.createTable(shell);
+						table.setBounds(10, 150, 910, 400);
+						pageRecords.fillTable(shell, search, table);
+					}
+					else {
+						pageRecords.fillTable(shell, search, table);
+					}
 				}
 				textSport.setText("");
 			}

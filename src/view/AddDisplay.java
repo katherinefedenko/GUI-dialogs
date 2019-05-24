@@ -3,7 +3,6 @@ package view;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Display;
@@ -16,17 +15,15 @@ import controller.DataController;
 
 public class AddDisplay {
 
-	private Display display;
 	private DataController controller;
 	private Shell shell;
 	private Shell mainShell;
 	private Table table;
-	private PageRecords pageRecords;
+	PageRecords pageRecords;
 
 	public AddDisplay(Display display, DataController controller, Shell mainShell, Table table) {
 		this.mainShell = mainShell;
 		this.table = table;
-		this.display = display;
 		this.controller = controller;
 		
 		shell = new Shell(display, SWT.TITLE | SWT.CLOSE );
@@ -78,7 +75,7 @@ public class AddDisplay {
 				String income = textIncome.getText();
 				
 				controller.addTournament(tournament, sport, prize, date);
-				PageRecords pageRecords = new PageRecords();
+				pageRecords = new PageRecords();
 				pageRecords.fillTable(mainShell, controller.getListOfTournaments(), table);
 				
 				textTournament.setText("");

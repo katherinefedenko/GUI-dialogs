@@ -1,24 +1,15 @@
 package view;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.layout.RowData;
 import org.eclipse.swt.widgets.*;
 
 import controller.DataController;
-import model.Tournament;
-import model.TournamentDataBase;
-import model.Winner;
 
 public class DispalyComponents {
 
-	private List<Tournament> tournamentList;
 	private Display display;
-	private Winner winner;
     
     public DispalyComponents(Shell shell, DataController controller, Table table) {
         
@@ -73,7 +64,7 @@ public class DispalyComponents {
         itemDeleteByTournament.addSelectionListener(new SelectionAdapter() {
         	
 			public void widgetSelected(SelectionEvent arg0) {
-				new DeleteByTournament(display, controller, table);
+				new DeleteByTournament(display, controller, shell, table);
 			}
 		});
         

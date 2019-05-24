@@ -1,7 +1,6 @@
 package parsers;
 
 import java.util.List;
-import javax.swing.*;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Transformer;

@@ -5,7 +5,6 @@ import java.util.List;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.layout.RowData;
 import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.*;
 
@@ -13,17 +12,15 @@ import controller.DataController;
 import model.Tournament;
 
 public class DeleteByTournament {
-
-	private Display display;
 	private DataController controller;
 	private Shell shell;
-	private Table table;
-	private String[] tableTitles = { "Tournament", "Date", "Sport", "Winner", "Prize", "Income" };
+	private Shell mainShell;
+	private Table mainTable;
 	PageRecords pageRecords;
 
-	public DeleteByTournament(Display display, DataController controller, Table table) {
-		this.table = table;
-		this.display = display;
+	public DeleteByTournament(Display display, DataController controller, Shell mainShell, Table mainTable) {
+		this.mainShell = mainShell;
+		this.mainTable = mainTable;
 		this.controller = controller;
 		shell = new Shell(display, SWT.MAX | SWT.TITLE | SWT.CLOSE | SWT.SHELL_TRIM);
 		RowLayout rowLayout = new RowLayout();
@@ -31,7 +28,7 @@ public class DeleteByTournament {
 		rowLayout.marginLeft = 10;
 		rowLayout.marginTop = 10;
 		shell.setText("Delete record by tournament or date");
-		shell.setSize(1000, 500);
+		shell.setSize(500, 300);
 		shell.setLayout(rowLayout);
 		deleteByTournament();
 		shell.open();
@@ -67,7 +64,8 @@ public class DeleteByTournament {
 					messageError.setMessage(removeTournamentAmount + " record(s) was/were removed");
 					messageError.open();
 					PageRecords pageRecords = new PageRecords();
-					pageRecords.fillTable(shell, controller.getListOfTournaments(), table);
+					//Table recreateMainTable = pageRecords.createTable(mainShell, mainTable);
+					pageRecords.fillTable(mainShell, controller.getListOfTournaments(), mainTable);
 				}
 				textTournament.setText("");
 				textDate.setText("");
