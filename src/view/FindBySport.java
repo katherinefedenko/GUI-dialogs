@@ -76,12 +76,9 @@ public class FindBySport {
 					messageError.setMessage("No items accoarding your request");
 					messageError.open();
 				} else {
-					System.out.println(search);
 					PageRecords pageRecords = new PageRecords();
 					pageRecords.fillTable(shell, search, table);
-
 				}
-
 				textSport.setText("");
 			}
 

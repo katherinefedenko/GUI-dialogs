@@ -14,15 +14,15 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 
+import controller.DataController;
 import model.Tournament;
 import model.TournamentDataBase;
 
 public class PageRecords {
 	private String[] tableTitles = { "Tournament", "Date", "Sport", "Winner", "Prize", "Income" };
-
-
+	private DataController controller;
+	
 	public void fillTable(Shell shell, List<Tournament> tournamentList, Table table) {
-			
 		for (Tournament tournament : tournamentList) {
 			TableItem item = new TableItem(table, SWT.NONE);
 			item.setText(0, tournament.getName());
@@ -33,8 +33,8 @@ public class PageRecords {
 			// item.setText(5, winner.getIncome());
 		}
 	}
-	
-	public Table createTable(Shell shell) {
+
+	/*public Table createTable(Shell shell) {
 		Table table = new Table(shell, SWT.MULTI | SWT.BORDER | SWT.FULL_SELECTION);
 		table.setBounds(10, 15, 910, 300);
 		table.setLinesVisible(true);
@@ -47,10 +47,5 @@ public class PageRecords {
 			column.setResizable(false);
 		}
 		return table;
-	}
-	
-	public void refresh(Shell shell, Table table){
-		table.dispose();
-        shell.layout(true);
-	}
+	}*/
 }

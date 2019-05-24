@@ -51,21 +51,6 @@ public class DeleteByPrize {
 			Button deleteButton = new Button(shell, SWT.PUSH);
 			deleteButton.setText("Delete");
 
-			Table table = new Table(shell, SWT.MULTI | SWT.BORDER | SWT.FULL_SELECTION);
-			RowData rowData = new RowData();
-			rowData.height = 250;
-			rowData.width = 900;
-			table.setLayoutData(rowData);
-			table.setLinesVisible(true);
-			table.setHeaderVisible(true);
-			
-			for (int currTitle = 0; currTitle < tableTitles.length; currTitle++) {
-				TableColumn column = new TableColumn(table, SWT.CENTER);
-				column.setWidth(150);
-				column.setText(tableTitles[currTitle]);
-				column.setResizable(false);
-			}
-
 			deleteButton.addSelectionListener(new SelectionAdapter() {
 				public void widgetSelected(SelectionEvent arg0) {
 					int prize = Integer.parseInt(textPrize.getText());
@@ -77,18 +62,14 @@ public class DeleteByPrize {
 						messageError.setMessage("No items accoarding request");
 						messageError.open();
 					} else {
-						int removeTournamentAmount = controller.removeStudent(search);
+						int removeTournamentAmount = controller.removeTournament(search);
 						MessageBox messageError = new MessageBox(shell, SWT.ICON_INFORMATION);
 						messageError.setText("DONE!");
 						messageError.setMessage(removeTournamentAmount + " record(s) was/were removed");
 						messageError.open();
-						PageRecords pageRecords = new PageRecords();
-						pageRecords.fillTable(shell, controller.getListOfTournaments(), table);
 						
 					}
 					textPrize.setText("");
-					
-
 				}
 
 			});

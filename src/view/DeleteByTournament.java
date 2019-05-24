@@ -17,11 +17,12 @@ public class DeleteByTournament {
 	private Display display;
 	private DataController controller;
 	private Shell shell;
+	private Table table;
 	private String[] tableTitles = { "Tournament", "Date", "Sport", "Winner", "Prize", "Income" };
 	PageRecords pageRecords;
 
-	public DeleteByTournament(Display display, DataController controller) {
-
+	public DeleteByTournament(Display display, DataController controller, Table table) {
+		this.table = table;
 		this.display = display;
 		this.controller = controller;
 		shell = new Shell(display, SWT.MAX | SWT.TITLE | SWT.CLOSE | SWT.SHELL_TRIM);
@@ -48,21 +49,6 @@ public class DeleteByTournament {
 		Button deleteButton = new Button(shell, SWT.PUSH);
 		deleteButton.setText("Delete");
 
-		Table table = new Table(shell, SWT.MULTI | SWT.BORDER | SWT.FULL_SELECTION);
-		RowData rowData = new RowData();
-		rowData.height = 250;
-		rowData.width = 900;
-		table.setLayoutData(rowData);
-		table.setLinesVisible(true);
-		table.setHeaderVisible(true);
-
-		for (int currTitle = 0; currTitle < tableTitles.length; currTitle++) {
-			TableColumn column = new TableColumn(table, SWT.CENTER);
-			column.setWidth(150);
-			column.setText(tableTitles[currTitle]);
-			column.setResizable(false);
-		}
-
 		deleteButton.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent arg0) {
 				String tournament = textTournament.getText();
@@ -75,14 +61,13 @@ public class DeleteByTournament {
 					messageError.setMessage("No items accoarding request");
 					messageError.open();
 				} else {
-					int removeTournamentAmount = controller.removeStudent(search);
+					int removeTournamentAmount = controller.removeTournament(search);
 					MessageBox messageError = new MessageBox(shell, SWT.ICON_INFORMATION);
 					messageError.setText("DONE!");
 					messageError.setMessage(removeTournamentAmount + " record(s) was/were removed");
 					messageError.open();
 					PageRecords pageRecords = new PageRecords();
 					pageRecords.fillTable(shell, controller.getListOfTournaments(), table);
-
 				}
 				textTournament.setText("");
 				textDate.setText("");

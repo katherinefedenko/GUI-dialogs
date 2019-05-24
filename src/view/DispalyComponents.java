@@ -65,7 +65,7 @@ public class DispalyComponents {
 		});
         
         ToolBar DeleteBar = new ToolBar(shell, SWT.BORDER|SWT.VERTICAL);
-        DeleteBar.setBounds(270, 420, 90, 80);
+        DeleteBar.setBounds(270, 420, 140, 80);
         
         ToolItem itemDeleteByTournament = new ToolItem(DeleteBar, SWT.PUSH);
         itemDeleteByTournament.setText("Delete by tournament");
@@ -73,7 +73,7 @@ public class DispalyComponents {
         itemDeleteByTournament.addSelectionListener(new SelectionAdapter() {
         	
 			public void widgetSelected(SelectionEvent arg0) {
-				new DeleteByTournament(display, controller);
+				new DeleteByTournament(display, controller, table);
 			}
 		});
         
@@ -99,18 +99,6 @@ public class DispalyComponents {
                
     }
     
-    public void showTableItems(DataController controller, Table table) {
-    	tournamentList = new ArrayList<Tournament>(controller.getListOfTournaments());
-    	for(Tournament tournament : tournamentList) {
-    		TableItem item = new TableItem(table, SWT.NONE);
-        	item.setText(0, tournament.getName());
-        	item.setText(1, tournament.getDate());
-        	item.setText(2, tournament.getSport());
-        	//item.setText(3, tournament.getWinner());
-        	item.setText(4, Integer.toString(tournament.getPrizeAmount()));
-        	//item.setText(5, Integer.toString(winner.getIncome()));
-    	}
-    }
    
 }
 

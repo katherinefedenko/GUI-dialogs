@@ -55,16 +55,11 @@ public class MenuBar {
 			File fileOpen = new File(fileNameOpen);
 			try {
 				controller.open(fileOpen);
-				
-				//tableComponent.showTableItems(controller, table);
-				
 			} catch (SAXException | ParserConfigurationException | IOException e1) {
 				e1.printStackTrace();
 			}
-			
 				pageRecords = new PageRecords();
 				pageRecords.fillTable(shell, controller.getListOfTournaments(), table);
-			
 	    }
 	});
 			

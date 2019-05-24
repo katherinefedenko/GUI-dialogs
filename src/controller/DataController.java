@@ -85,7 +85,7 @@ public class DataController {
 		
 	}
 
-	public int removeStudent(List<Tournament> delTournament) {
+	public int removeTournament(List<Tournament> delTournament) {
 		List<Tournament> newTournament = dataBase.getRecordList();
 		int size = newTournament.size();
 		for (Tournament tournament : delTournament) {
@@ -102,6 +102,12 @@ public class DataController {
 		return dataBase.getRecordList();
 	}
 
+	/*public void calculateIncome() {
+		double income = 0;
+		for(Tournament tournament : getListOfTournaments()) {
+			tournament
+		}
+	}*/
 	
 
 }

@@ -40,7 +40,6 @@ public class AddDisplay {
         addDisplay();
         shell.open();
 	}
-	
 
 	public void addDisplay() {
 		Label labelTournament = new Label (shell, SWT.NONE);
@@ -77,9 +76,11 @@ public class AddDisplay {
 				String winner = textWinner.getText();
 				int prize = Integer.parseInt(textPrize.getText());
 				String income = textIncome.getText();
+				
 				controller.addTournament(tournament, sport, prize, date);
 				PageRecords pageRecords = new PageRecords();
 				pageRecords.fillTable(mainShell, controller.getListOfTournaments(), table);
+				
 				textTournament.setText("");
 				textDate.setText("");
 				textSport.setText("");
