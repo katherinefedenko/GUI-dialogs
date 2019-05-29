@@ -58,7 +58,7 @@ public class MenuBar {
 			} catch (SAXException | ParserConfigurationException | IOException e1) {
 				e1.printStackTrace();
 			}
-				pageRecords = new PageRecords();
+				pageRecords = new PageRecords(controller);
 				pageRecords.fillTable(shell, controller.getListOfTournaments(), table);
 	    }
 	});

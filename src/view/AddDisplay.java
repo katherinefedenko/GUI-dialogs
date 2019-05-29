@@ -75,7 +75,7 @@ public class AddDisplay {
 				String income = textIncome.getText();
 				
 				controller.addTournament(tournament, sport, prize, date);
-				pageRecords = new PageRecords();
+				pageRecords = new PageRecords(controller);
 				pageRecords.fillTable(mainShell, controller.getListOfTournaments(), table);
 				
 				textTournament.setText("");

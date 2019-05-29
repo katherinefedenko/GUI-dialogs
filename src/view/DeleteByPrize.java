@@ -14,11 +14,14 @@ public class DeleteByPrize {
 	
 		private DataController controller;
 		private Shell shell;
+		private Shell mainShell;
+		private Table mainTable;
 		PageRecords pageRecords;
 
-		public DeleteByPrize(Display display, DataController controller) {
-
+		public DeleteByPrize(Display display, DataController controller, Shell mainShell, Table mainTable) {
 			this.controller = controller;
+			this.mainShell = mainShell;
+			this.mainTable = mainTable;
 			shell = new Shell(display, SWT.MAX | SWT.TITLE | SWT.CLOSE | SWT.SHELL_TRIM);
 			RowLayout rowLayout = new RowLayout();
 			rowLayout.spacing = 10;
@@ -60,6 +63,9 @@ public class DeleteByPrize {
 						messageError.setText("DONE!");
 						messageError.setMessage(removeTournamentAmount + " record(s) was/were removed");
 						messageError.open();
+						PageRecords pageRecords = new PageRecords(controller);
+						//Table recreateMainTable = pageRecords.createTable(mainShell, mainTable);
+						pageRecords.fillTable(mainShell, controller.getListOfTournaments(), mainTable);
 						
 					}
 					textPrize.setText("");

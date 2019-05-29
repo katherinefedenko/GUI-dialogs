@@ -74,7 +74,7 @@ public class DispalyComponents {
         itemDeleteBySport.addSelectionListener(new SelectionAdapter() {
         	
 			public void widgetSelected(SelectionEvent arg0) {
-				new DeleteBySport(display, controller);
+				new DeleteBySport(display, controller, shell, table);
 			}
 		});
         
@@ -84,7 +84,7 @@ public class DispalyComponents {
         itemDeleteByPrize.addSelectionListener(new SelectionAdapter() {
         	
 			public void widgetSelected(SelectionEvent arg0) {
-				new DeleteByPrize(display, controller);
+				new DeleteByPrize(display, controller, shell, table);
 			}
 		});
                

@@ -56,10 +56,10 @@ public class FindBySport {
 					messageError.open();
 				} else {
 					if(pageRecords == null) {
-						pageRecords = new PageRecords();
+						pageRecords = new PageRecords(controller);
 						shell.setBounds(150, 100, 1000, 600);
 						table = pageRecords.createTable(shell);
-						table.setBounds(10, 150, 910, 400);
+						table.setBounds(10, 150, 910, 250);
 						pageRecords.fillTable(shell, search, table);
 					}
 					else {
