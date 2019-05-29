@@ -23,6 +23,7 @@ import org.xml.sax.*;
 		private List<Tournament> tournamentList = new ArrayList<>();
 		private List<Winner> winnerList = new ArrayList<>();
 		private Tournament tournament;
+		private Winner winner;
 		private String name;
 		//private LocalDate date;
 		private String date;
