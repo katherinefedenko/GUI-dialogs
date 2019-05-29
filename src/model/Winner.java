@@ -5,7 +5,7 @@ public class Winner {
 	private String lastName;
 	private int income;
 
-	public Winner(String firstName, String lastName, int income) {
+	public Winner(String firstName, String lastName) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.income = income;

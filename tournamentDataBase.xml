@@ -19,7 +19,7 @@
 		<winner>
 			<firstName>Новак</firstName>
 			<lastName>Джокович</lastName>
-			<income></income>
+			<income>4242</income>
 		</winner>
 	</tournament>
 
@@ -31,7 +31,7 @@
 		<winner>
 			<firstName>Арнд</firstName>
 			<lastName>Пайфффер</lastName>
-			<income></income>
+			<income>6564</income>
 		</winner>
 	</tournament>
 	
@@ -43,7 +43,7 @@
 		<winner>
 			<firstName>Таро</firstName>
 			<lastName>Дэниэл</lastName>
-			<income></income>
+			<income>7657</income>
 		</winner>
 	</tournament>
 	

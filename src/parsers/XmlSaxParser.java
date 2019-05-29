@@ -76,7 +76,7 @@ import org.xml.sax.*;
             	&&	(prizeAmount != 0))
                {
             		tournamentList.add(new Tournament(name, sport, prizeAmount, date));
-            		winnerList.add(new Winner(firstName, lastName, income));
+            		winnerList.add(new Winner(firstName, lastName));
             		name = null;
             		date = null;
             		sport = null;
