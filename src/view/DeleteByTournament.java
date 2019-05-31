@@ -65,7 +65,7 @@ public class DeleteByTournament {
 					messageError.open();
 					PageRecords pageRecords = new PageRecords(controller);
 					//Table recreateMainTable = pageRecords.createTable(mainShell, mainTable);
-					pageRecords.fillTable(mainShell, controller.getListOfTournaments(), mainTable);
+					pageRecords.fillTableByPages(mainShell, controller.getListOfTournaments(), mainTable);
 				}
 				textTournament.setText("");
 				textDate.setText("");

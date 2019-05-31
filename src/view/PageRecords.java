@@ -25,14 +25,14 @@ public class PageRecords {
 	private List<Tournament> tournamentList;
 	private DataController controller;
 	private Table table;
-	private Label countRecords;
+	private Label pageRecords;
 	private Label allRecords;
 	private Label currentPage;
 	private Label allPages;
-	private int numberOfCurrentPage = 1;
+	private int currPage = 1;
     private int count = 0;
-    private Text countPages;
-    private Label countPagesText;
+    private Text recordsAmount;
+    private Label recordsAmountInput;
     private Button lastPage;
     private Button nextPage;
     private Button prevPage;
@@ -42,14 +42,14 @@ public class PageRecords {
     	this.controller = controller;
     }
 	
-	public void fillTable(Shell shell, List<Tournament> tournamentList, Table table) {
-		countRecords = new Label(shell, SWT.NONE);
-		countRecords.setBounds(420, 420, 110, 30);
-		countRecords.setText("Records on page: " + 0);
+	public void fillTableByPages(Shell shell, List<Tournament> tournamentList, Table table) {
+		pageRecords = new Label(shell, SWT.NONE);
+		pageRecords.setBounds(420, 420, 110, 30);
+		pageRecords.setText("Records on page: " + 0);
 		
 		allRecords = new Label(shell, SWT.NONE);
 		allRecords.setBounds(535, 420, 100, 30);
-		allRecords.setText("Records at all: " + 0);
+		allRecords.setText("All records: " + 0);
 		
 		currentPage = new Label(shell, SWT.NONE);
 		currentPage.setBounds(635, 420, 90, 30);
@@ -57,55 +57,55 @@ public class PageRecords {
 				
 		allPages = new Label(shell, SWT.NONE);
 		allPages.setBounds(735, 420, 80, 30);
-		allPages.setText("Pages at all: " + numberOfCurrentPage);
+		allPages.setText("All pages: " + currPage);
 		
-        countPagesText = new Label(shell, SWT.NONE);
-        countPagesText.setText("Input count of records:");
-        countPagesText.setBounds(820, 420, 120, 30);
+        recordsAmountInput = new Label(shell, SWT.NONE);
+        recordsAmountInput.setText("Set records amount:");
+        recordsAmountInput.setBounds(820, 420, 120, 30);
 		
-        countPages = new Text(shell, SWT.BORDER);
-        countPages.setText("5");
-        countPages.setBounds(950, 420, 30, 20);
+        recordsAmount = new Text(shell, SWT.BORDER);
+        recordsAmount.setText("5");
+        recordsAmount.setBounds(950, 420, 30, 20);
         
-        if (!countPages.getText().isEmpty()) {
+        if (!recordsAmount.getText().isEmpty()) {
             table.removeAll();
-            count = Integer.parseInt(countPages.getText());
+            count = Integer.parseInt(recordsAmount.getText());
             if (count <= tournamentList.size()) {
-            	setRecordList(tournamentList, table, 0, count);
-            	countRecords.setText("Records on page: " + count);
-            	allPages.setText("Pages at all: " + (int)Math.ceil((double)tournamentList.size() / (double)count));
+            	fillTableRecords(tournamentList, table, 0, count);
+            	pageRecords.setText("Records on page: " + count);
+            	allPages.setText("Pages at all: " + (int)Math.ceil((double)tournamentList.size() / count));
             } else {
-            	setRecordList(tournamentList, table, 0, tournamentList.size());
-            	countRecords.setText("Records on page: " + tournamentList.size());
+            	fillTableRecords(tournamentList, table, 0, tournamentList.size());
+            	pageRecords.setText("Records on page: " + tournamentList.size());
             	allPages.setText("Pages at all: " + 1);
             }
             allRecords.setText("Records at all: " + tournamentList.size());
     		currentPage.setText("Current page: " + 1);
-            numberOfCurrentPage = 1;
+            currPage = 1;
         }
-        createButtons(shell, table, tournamentList);
+        controlButtons(shell, table, tournamentList);
 		
 	}
 	
-	public void createButtons(Shell shell, Table table, List<Tournament> tournamentList) {
+	public void controlButtons(Shell shell, Table table, List<Tournament> tournamentList) {
 		firstPage = new Button(shell, SWT.PUSH);
         firstPage.setText("First page");
         firstPage.setBounds(420, 470, 100, 30);
         firstPage.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
-            	if (numberOfCurrentPage == 1) {
+            	if (currPage == 1) {
             		return;
             	} else {
-            		if (!countPages.getText().isEmpty()) {
+            		if (!recordsAmount.getText().isEmpty()) {
             			table.removeAll();
-            			count = Integer.parseInt(countPages.getText());
-            			setRecordList(controller.getListOfTournaments(), table, 0, count);
-            			countRecords.setText("Records on page: " + count);
-            			allPages.setText("Pages at all: " + (int)Math.ceil((double)controller.getListOfTournaments().size() / (double)count));
-            			numberOfCurrentPage = 1;
+            			count = Integer.parseInt(recordsAmount.getText());
+            			fillTableRecords(controller.getListOfTournaments(), table, 0, count);
+            			pageRecords.setText("Records on page: " + count);
+            			allPages.setText("Pages at all: " + (int)Math.ceil((double)controller.getListOfTournaments().size() /count));
             			allRecords.setText("Records at all: " + controller.getListOfTournaments().size());
-            			currentPage.setText("Current page: " + numberOfCurrentPage);
+            			//currPage = 1;
+            			currentPage.setText("Current page: " + 1);
             		} 
             	}
             }
@@ -117,18 +117,18 @@ public class PageRecords {
         prevPage.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
-            	if (numberOfCurrentPage == 1) {
+            	if (currPage == 1) {
             		return;
             	} else {
-            		if (!countPages.getText().isEmpty()) {
+            		if (!recordsAmount.getText().isEmpty()) {
             			table.removeAll();
-            			count = Integer.parseInt(countPages.getText());
-            			setRecordList(controller.getListOfTournaments(), table, (numberOfCurrentPage - 2) * count, (numberOfCurrentPage - 1) * count);
-            			countRecords.setText("Records on page: " + count);
-            			allPages.setText("Pages at all: " + (int)Math.ceil((double)controller.getListOfTournaments().size() / (double)count));
-            			numberOfCurrentPage--;
+            			count = Integer.parseInt(recordsAmount.getText());
+            			fillTableRecords(controller.getListOfTournaments(), table, (currPage - 2) * count, (currPage - 1) * count);
+            			pageRecords.setText("Records on page: " + count);
+            			allPages.setText("Pages at all: " + (int)Math.ceil((double)controller.getListOfTournaments().size() / count));
             			allRecords.setText("Records at all: " + controller.getListOfTournaments().size());
-            			currentPage.setText("Current page: " + numberOfCurrentPage);
+            			currPage--;
+            			currentPage.setText("Current page: " + currPage);
             		} 
             	}
             }
@@ -140,24 +140,25 @@ public class PageRecords {
         nextPage.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
-            	if (tournamentList.size() - numberOfCurrentPage * count <= 0) {
+            	if (tournamentList.size() - currPage * count <= 0) {
             		return;
             	} else {
-            		if (!countPages.getText().isEmpty()) {
+            		if (!recordsAmount.getText().isEmpty()) {
             			table.removeAll();
-            			count = Integer.parseInt(countPages.getText());
-            			if (count <= controller.getListOfTournaments().size() - numberOfCurrentPage * count) {
-            				setRecordList(controller.getListOfTournaments(), table, numberOfCurrentPage * count, numberOfCurrentPage * count + count);
-            				countRecords.setText("Records on page: " + count);
-            				allPages.setText("Pages at all: " + (int)Math.ceil((double)controller.getListOfTournaments().size() / (double)count));
+            			count = Integer.parseInt(recordsAmount.getText());
+            			if (count <= controller.getListOfTournaments().size() - currPage * count) {
+            				fillTableRecords(controller.getListOfTournaments(), table, currPage * count, currPage * count + count);
+            				pageRecords.setText("Records on page: " + count);
+            				allPages.setText("Pages at all: " + (int)Math.ceil((double)controller.getListOfTournaments().size() / count));
             			} else {
-            				setRecordList(controller.getListOfTournaments(), table, numberOfCurrentPage * count, controller.getListOfTournaments().size());
-            				countRecords.setText("Records on page: " + (controller.getListOfTournaments().size() - numberOfCurrentPage * count));
-            				allPages.setText("Pages at all: " + (int)Math.ceil((double)controller.getListOfTournaments().size() / (double)count));
-            			}
+        					fillTableRecords(controller.getListOfTournaments(), table, 0, controller.getListOfTournaments().size());
+        					pageRecords.setText("Records on page: " + controller.getListOfTournaments().size());
+        					allPages.setText("Pages at all: " + 1);
+        					currPage=0;
+        				}
             			allRecords.setText("Records at all: " + controller.getListOfTournaments().size());
-            			numberOfCurrentPage++;
-            			currentPage.setText("Current page: " + numberOfCurrentPage);
+            			currPage++;
+            			currentPage.setText("Current page: " + currPage);
             		} 
             	}
             }
@@ -169,49 +170,50 @@ public class PageRecords {
         lastPage.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
-            	if (numberOfCurrentPage == (int)Math.ceil((double)controller.getListOfTournaments().size() / (double)count)) {
+            	if (currPage == (int)Math.ceil((double)controller.getListOfTournaments().size() / count)) {
             		return;
             	} else {
-            		if (!countPages.getText().isEmpty()) {
+            		if (!recordsAmount.getText().isEmpty()) {
             			table.removeAll();
-            			count = Integer.parseInt(countPages.getText());
-            			numberOfCurrentPage = (int)Math.ceil((double)controller.getListOfTournaments().size() / (double)count);
-           				setRecordList(controller.getListOfTournaments(), table, (numberOfCurrentPage - 1) * count, controller.getListOfTournaments().size());
-            			countRecords.setText("Records on page: " + (tournamentList.size() - (numberOfCurrentPage - 1) * count));
-            			allPages.setText("Pages at all: " + (int)Math.ceil((double)controller.getListOfTournaments().size() / (double)count));
+            			count = Integer.parseInt(recordsAmount.getText());
+            			currPage = (int)Math.ceil((double)controller.getListOfTournaments().size() / count);
+           				fillTableRecords(controller.getListOfTournaments(), table, (currPage - 1) * count, controller.getListOfTournaments().size());
+            			pageRecords.setText("Records on page: " + (tournamentList.size() - (currPage - 1) * count));
+            			allPages.setText("Pages at all: " + (int)Math.ceil((double)controller.getListOfTournaments().size() / count));
             			allRecords.setText("Records at all: " + controller.getListOfTournaments().size());
-            			currentPage.setText("Current page: " + numberOfCurrentPage);
+            			currentPage.setText("Current page: " + currPage);
             		} 
             	}
             }
         });
         
-        countPages.addKeyListener(new KeyAdapter(){	
+        recordsAmount.addKeyListener(new KeyAdapter(){	
         	@Override        		
         	public void keyPressed(KeyEvent e){
         		if(e.keyCode == SWT.CR){
-        			if (!countPages.getText().isEmpty()) {
+        			if (!recordsAmount.getText().isEmpty()) {
         				table.removeAll();
-        				count = Integer.parseInt(countPages.getText());
+        				count = Integer.parseInt(recordsAmount.getText());
         				if (count <= controller.getListOfTournaments().size()) {
-        					setRecordList(controller.getListOfTournaments(), table, 0, count);
-        					countRecords.setText("Records on page: " + count);
-        					allPages.setText("Pages at all: " + (int)Math.ceil((double)controller.getListOfTournaments().size() / (double)count));
+        					fillTableRecords(controller.getListOfTournaments(), table, 0, count);
+        					pageRecords.setText("Records on page: " + count);
+        					allPages.setText("Pages at all: " + (int)Math.ceil((double)controller.getListOfTournaments().size() / count));
         				} else {
-        					setRecordList(controller.getListOfTournaments(), table, 0, controller.getListOfTournaments().size());
-        					countRecords.setText("Records on page: " + controller.getListOfTournaments().size());
+        					fillTableRecords(controller.getListOfTournaments(), table, 0, controller.getListOfTournaments().size());
+        					pageRecords.setText("Records on page: " + controller.getListOfTournaments().size());
         					allPages.setText("Pages at all: " + 1);
         				}
         				allRecords.setText("Records at all: " + controller.getListOfTournaments().size());
-        				currentPage.setText("Current page: " + 1);
-        				numberOfCurrentPage = 1;
+        				currPage = 1;
+        				currentPage.setText("Current page: " + currPage);
+        				
         			}
         		}
         	}
         });
 	}
 
-	public void setRecordList (List<Tournament> tournamentList, Table table, int from, int to) {
+	public void fillTableRecords (List<Tournament> tournamentList, Table table, int from, int to) {
 		if(from > to) return;
 		List<Tournament> partTournamentList = tournamentList.subList(from, to);
 		for (Tournament tournament : partTournamentList) {

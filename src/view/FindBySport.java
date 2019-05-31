@@ -60,10 +60,10 @@ public class FindBySport {
 						shell.setBounds(150, 100, 1000, 600);
 						table = pageRecords.createTable(shell);
 						table.setBounds(10, 150, 910, 250);
-						pageRecords.fillTable(shell, search, table);
+						pageRecords.fillTableByPages(shell, search, table);
 					}
 					else {
-						pageRecords.fillTable(shell, search, table);
+						pageRecords.fillTableByPages(shell, search, table);
 					}
 				}
 				textSport.setText("");

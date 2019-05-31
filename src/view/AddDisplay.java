@@ -76,7 +76,7 @@ public class AddDisplay {
 				
 				controller.addTournament(tournament, sport, prize, date);
 				pageRecords = new PageRecords(controller);
-				pageRecords.fillTable(mainShell, controller.getListOfTournaments(), table);
+				pageRecords.fillTableByPages(mainShell, controller.getListOfTournaments(), table);
 				
 				textTournament.setText("");
 				textDate.setText("");

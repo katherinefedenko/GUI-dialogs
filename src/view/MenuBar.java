@@ -59,7 +59,7 @@ public class MenuBar {
 				e1.printStackTrace();
 			}
 				pageRecords = new PageRecords(controller);
-				pageRecords.fillTable(shell, controller.getListOfTournaments(), table);
+				pageRecords.fillTableByPages(shell, controller.getListOfTournaments(), table);
 	    }
 	});
 			
