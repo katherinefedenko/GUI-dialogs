@@ -55,7 +55,6 @@ public class DataController {
 				tournamentSearch.add(tournament);	
 			}
 		}
-		//dataBase.reInitDataBase(tournamentSearch);
 		return tournamentSearch;
 	}
 	
@@ -66,7 +65,6 @@ public class DataController {
 				tournamentSearch.add(tournament);	
 			}
 		}
-		//	dataBase.reInitDataBase(tournamentSearch);
 		return tournamentSearch;
 		
 	}
@@ -78,7 +76,6 @@ public class DataController {
 				tournamentSearch.add(tournament);	
 			}
 		}
-		//	dataBase.reInitDataBase(tournamentSearch);
 		return tournamentSearch;
 		
 	}

@@ -24,7 +24,7 @@
 	</tournament>
 
 <tournament>
-		<name>Олимпийские игры 2018</name>
+		<name>Олимпийские игры 2006</name>
 		<date>25.01.2018</date>
 		<sport>Биатлон</sport>
 		<prize>1116000</prize>
@@ -48,7 +48,7 @@
 	</tournament>
 	
 	<tournament>
-		<name>Олимпийские игры 2018</name>
+		<name>Олимпийские игры 2010</name>
 		<date>18.03.2018</date>
 		<sport>Бобслей</sport>
 		<prize>1116000</prize>
@@ -72,7 +72,7 @@
 	</tournament>
 	
 	<tournament>
-		<name>Олимпийские игры 2018</name>
+		<name>Олимпийские игры 2014</name>
 		<date>23.01.2019</date>
 		<sport>Керлинг</sport>
 		<prize>452200</prize>
@@ -84,7 +84,7 @@
 	</tournament>
 	
 	<tournament>
-		<name>AusOpen</name>
+		<name>USOpen</name>
 		<date>23.01.2019</date>
 		<sport>Tennis</sport>
 		<prize>452200</prize>
@@ -96,7 +96,7 @@
 	</tournament>
 
 	<tournament>
-		<name>AusOpen</name>
+		<name>USOpen</name>
 		<date>21.01.2019</date>
 		<sport>Tennis</sport>
 		<prize>15160</prize>
@@ -107,7 +107,7 @@
 		</winner>
 	</tournament>
 	<tournament>
-		<name>попрор</name>
+		<name>ITChamp</name>
 		<date>21.01.2019</date>
 		<sport>Tennis</sport>
 		<prize>15160</prize>
@@ -118,7 +118,7 @@
 		</winner>
 	</tournament>
 	<tournament>
-		<name>Ausмомвмn</name>
+		<name>RusCup</name>
 		<date>21.01.2019</date>
 		<sport>Tennis</sport>
 		<prize>15160</prize>
@@ -129,9 +129,9 @@
 		</winner>
 	</tournament>
 	<tournament>
-		<name>Open</name>
+		<name>FIFA</name>
 		<date>21.01.2019</date>
-		<sport>Tennis</sport>
+		<sport>Футбол</sport>
 		<prize>15160</prize>
 		<winner>
 			<firstName>Давид</firstName>
@@ -140,9 +140,9 @@
 		</winner>
 	</tournament>
 	<tournament>
-		<name>Hey</name>
+		<name>Europe League</name>
 		<date>21.01.2019</date>
-		<sport>Tennis</sport>
+		<sport>Футбол</sport>
 		<prize>15160</prize>
 		<winner>
 			<firstName>Давид</firstName>
@@ -151,13 +151,13 @@
 		</winner>
 	</tournament>
 	<tournament>
-		<name>kol</name>
+		<name>Худ гимнастика</name>
 		<date>21.01.2019</date>
-		<sport>Tennis</sport>
+		<sport>Гимнастика</sport>
 		<prize>15160</prize>
 		<winner>
-			<firstName>Давид</firstName>
-			<lastName>Гоффен</lastName>
+			<firstName>Анастасия</firstName>
+			<lastName>Смирнова</lastName>
 			<income></income>
 		</winner>
 	</tournament>

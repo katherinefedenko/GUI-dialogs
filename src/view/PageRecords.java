@@ -151,10 +151,9 @@ public class PageRecords {
             				pageRecords.setText("Records on page: " + count);
             				allPages.setText("Pages at all: " + (int)Math.ceil((double)controller.getListOfTournaments().size() / count));
             			} else {
-        					fillTableRecords(controller.getListOfTournaments(), table, 0, controller.getListOfTournaments().size());
-        					pageRecords.setText("Records on page: " + controller.getListOfTournaments().size());
-        					allPages.setText("Pages at all: " + 1);
-        					currPage=0;
+        					fillTableRecords(controller.getListOfTournaments(), table, currPage * count, controller.getListOfTournaments().size());
+        					pageRecords.setText("Records on page: " + (controller.getListOfTournaments().size() - currPage * count));
+        					allPages.setText("Pages at all: " +(int)Math.ceil((double)controller.getListOfTournaments().size() / count));
         				}
             			allRecords.setText("Records at all: " + controller.getListOfTournaments().size());
             			currPage++;
