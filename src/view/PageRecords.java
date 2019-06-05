@@ -18,11 +18,14 @@ import org.eclipse.swt.widgets.Text;
 
 import controller.DataController;
 import model.Tournament;
+import model.Winner;
 
 
 public class PageRecords {
 	private String[] tableTitles = { "Tournament", "Date", "Sport", "Winner", "Prize", "Income" };
 	private List<Tournament> tournamentList;
+	
+	private Winner winner;
 	private DataController controller;
 	private Table table;
 	private Label pageRecords;
@@ -220,9 +223,9 @@ public class PageRecords {
 			item.setText(0, tournament.getName());
 			item.setText(1, tournament.getDate());
 			item.setText(2, tournament.getSport());
-			// item.setText(3, tournament.getWinner());
+			item.setText(3, tournament.getFullName());
 			item.setText(4, Integer.toString(tournament.getPrizeAmount()));
-			// item.setText(5, winner.getIncome());
+			item.setText(5, Integer.toString(tournament.getIncome()));
 		}
 	}
 	public Table createTable(Shell shell) {

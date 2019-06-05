@@ -5,10 +5,13 @@ public class Winner {
 	private String lastName;
 	private int income;
 
-	public Winner(String firstName, String lastName) {
-		this.firstName = firstName;
+	public Winner() {
+		/*this.firstName = firstName;
 		this.lastName = lastName;
-		this.income = income;
+		this.income = income;*/
+		firstName = "";
+		lastName = "";
+		income = 0;
 	}
 
 	public String getFirstName() {

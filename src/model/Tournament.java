@@ -9,13 +9,20 @@ public class Tournament {
 	private String sport;
 	private int prizeAmount;
 	private Winner winner;
+	private String firstName;
+	private String lastName;
+	private int income;
+	private String fullName;
 
-	public Tournament(String name, String sport, int prizeAmount, String date) {
-		this.name = name;
-		this.sport = sport;
-		this.prizeAmount = prizeAmount;
-		this.date = date;
-		//this.winner = winner;
+	public Tournament() {
+		name = "";
+		sport = "";
+		prizeAmount = 0;
+		date = "";
+		firstName = "";
+		lastName = "";
+		income = 0;
+		fullName = "";
 	}
 	/*
 	public LocalDate getDate() {
@@ -63,5 +70,34 @@ public class Tournament {
 	
 	public void setWinner(Winner winner) {
 		this.winner = winner;
+	}
+	
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getFullName() {
+		return getFirstName() + " " + getLastName() ;
+	}
+	
+	
+	public int getIncome() {
+		return income;
+	}
+	
+	public void setIncome(int income) {
+		this.income = income;
 	}
 }

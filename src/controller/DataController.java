@@ -27,9 +27,17 @@ public class DataController {
 		this.dataBase = dataBase;
 	}
 
-	public void addTournament(String tournament, String sport, int prize, String date) {
+	public void addTournament(String tournament, String sport, int prize, String date, String firstName, String lastName, int income) {
 		List<Tournament> addTournament = dataBase.getRecordList();
-		addTournament.add(new Tournament(tournament, sport, prize, date));
+		Tournament tour = new Tournament();
+		tour.setName(tournament);
+		tour.setSport(sport);
+		tour.setPrizeAmount(prize);
+		tour.setDate(date);
+		tour.setFirstName(firstName);
+		tour.setLastName(lastName);
+		tour.setIncome(income);
+		addTournament.add(tour);
 		dataBase.setRecordList(addTournament);
 	}
 	

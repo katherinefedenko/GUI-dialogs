@@ -51,9 +51,13 @@ public class AddDisplay {
 		labelSport.setText("Sport:");
 		Text textSport = new Text (shell, SWT.BORDER);
 		
-		Label labelWinner = new Label (shell, SWT.NONE);
-		labelWinner.setText("Winner:");
-		Text textWinner = new Text (shell, SWT.BORDER);
+		Label labelFirstName = new Label (shell, SWT.NONE);
+		labelFirstName.setText("FirstName:");
+		Text textFirstName = new Text (shell, SWT.BORDER);
+		
+		Label labelLastName = new Label (shell, SWT.NONE);
+		labelLastName.setText("LastName:");
+		Text textLastName = new Text (shell, SWT.BORDER);
 		
 		Label labelPrize = new Label (shell, SWT.NONE);
 		labelPrize.setText("Prize:");
@@ -70,18 +74,20 @@ public class AddDisplay {
 				String tournament = textTournament.getText();
 				String date = textDate.getText();
 				String sport = textSport.getText();
-				String winner = textWinner.getText();
+				String firstName = textFirstName.getText();
+				String lastName = textLastName.getText();
 				int prize = Integer.parseInt(textPrize.getText());
-				String income = textIncome.getText();
+				int income = Integer.parseInt(textIncome.getText());
 				
-				controller.addTournament(tournament, sport, prize, date);
+				controller.addTournament(tournament, sport, prize, date, firstName, lastName, income);
 				pageRecords = new PageRecords(controller);
 				pageRecords.fillTableByPages(mainShell, controller.getListOfTournaments(), table);
 				
 				textTournament.setText("");
 				textDate.setText("");
 				textSport.setText("");
-				textWinner.setText("");
+				textFirstName.setText("");
+				textLastName.setText("");
 				textPrize.setText("");
 				textIncome.setText("");
 			}

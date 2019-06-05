@@ -42,6 +42,15 @@ import org.xml.sax.*;
 		@Override
         public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
             lastElementName = qName;
+           if (lastElementName.equals("name")) {
+                tournament = new Tournament();
+                tournamentList.add(tournament);
+                System.out.println("Новая запись tournament создана!");
+            }
+            /*if (lastElementName.equals("winner")){
+            	System.out.println("Новая запись winner создана!");
+                winner = tournament.getWinner();
+            }*/
             //System.out.println("Start Element :" + qName);
         }
 		
@@ -62,8 +71,11 @@ import org.xml.sax.*;
                 	firstName = content;
                 else if (lastElementName.equals(parsers.XMLConst.LAST_NAME))
                     lastName = content;
-                else if (lastElementName.equals(parsers.XMLConst.INCOME))
-                    income = new Integer(content);
+                else if (lastElementName.equals(parsers.XMLConst.INCOME)) {
+                	income = new Integer(content);
+                	System.out.println(income);
+                }
+                    
            
             }
 		}
@@ -74,10 +86,19 @@ import org.xml.sax.*;
             	&&	(prizeAmount != 0)
             	&& 	(firstName != null && !firstName.isEmpty())
                 && 	(lastName != null && !lastName.isEmpty())
-            	&&	(prizeAmount != 0))
+            	&&	(prizeAmount != 0)
+            	&& 	(income != 0))
                {
-            		tournamentList.add(new Tournament(name, sport, prizeAmount, date));
-            		winnerList.add(new Winner(firstName, lastName));
+            	tournament.setName(name);
+            	tournament.setDate(date);
+            	tournament.setSport(sport);
+            	tournament.setPrizeAmount(prizeAmount);
+            	tournament.setFirstName(firstName);
+            	tournament.setLastName(lastName);
+            	tournament.setIncome(income);
+            	
+            	//tournamentList.add(new Tournament(name, sport, prizeAmount, date));
+            		//winnerList.add(new Winner(firstName, lastName));
             		name = null;
             		date = null;
             		sport = null;
