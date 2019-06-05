@@ -23,8 +23,8 @@ public class XmlSaxParser extends DefaultHandler {
 	private List<Tournament> tournamentList = new ArrayList<>();
 	private Tournament tournament;
 	private String name;
-	// private LocalDate date;
-	private String date;
+	private LocalDate date;
+	//private String date;
 	private String sport;
 	private int prizeAmount;
 	private String firstName;
@@ -49,7 +49,7 @@ public class XmlSaxParser extends DefaultHandler {
 			if (lastElementName.equals(parsers.XMLConst.NAME))
 				name = content;
 			else if (lastElementName.equals(parsers.XMLConst.DATE))
-				date = content;
+				date = LocalDate.parse(content);
 			else if (lastElementName.equals(parsers.XMLConst.SPORT))
 				sport = content;
 			else if (lastElementName.equals(parsers.XMLConst.PRIZE))
@@ -58,8 +58,8 @@ public class XmlSaxParser extends DefaultHandler {
 				firstName = content;
 			else if (lastElementName.equals(parsers.XMLConst.LAST_NAME))
 				lastName = content;
-			else if (lastElementName.equals(parsers.XMLConst.INCOME))
-				income = new Integer(content);
+			//else if (lastElementName.equals(parsers.XMLConst.INCOME))
+				//income = new Integer(content);
 		}
 	}
 
@@ -67,14 +67,14 @@ public class XmlSaxParser extends DefaultHandler {
 	public void endElement(String uri, String localName, String qName) throws SAXException {
 		if ((name != null && !name.isEmpty()) && (sport != null && !sport.isEmpty()) && (prizeAmount != 0)
 				&& (firstName != null && !firstName.isEmpty()) && (lastName != null && !lastName.isEmpty())
-				&& (prizeAmount != 0) && (income != 0)) {
+				&& (prizeAmount != 0)) {
 			tournament.setName(name);
 			tournament.setDate(date);
 			tournament.setSport(sport);
 			tournament.setPrizeAmount(prizeAmount);
 			tournament.setFirstName(firstName);
 			tournament.setLastName(lastName);
-			tournament.setIncome(income);
+			tournament.setIncome(1);
 
 			name = null;
 			date = null;
@@ -82,7 +82,7 @@ public class XmlSaxParser extends DefaultHandler {
 			prizeAmount = 0;
 			firstName = null;
 			lastName = null;
-			income = 0;
+			//income = 0;
 		} else
 			return;
 	}

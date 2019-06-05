@@ -1,5 +1,8 @@
 package view;
 
+import java.text.DecimalFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.eclipse.swt.SWT;
@@ -67,7 +70,7 @@ public class PageRecords {
         recordsAmountInput.setBounds(820, 420, 120, 30);
 		
         recordsAmount = new Text(shell, SWT.BORDER);
-        recordsAmount.setText("5");
+        recordsAmount.setText(""+tournamentList.size());
         recordsAmount.setBounds(950, 420, 30, 20);
         
         if (!recordsAmount.getText().isEmpty()) {
@@ -221,11 +224,12 @@ public class PageRecords {
 		for (Tournament tournament : partTournamentList) {
 			TableItem item = new TableItem(table, SWT.NONE);
 			item.setText(0, tournament.getName());
-			item.setText(1, tournament.getDate());
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+			item.setText(1, tournament.getDate().format(formatter));
 			item.setText(2, tournament.getSport());
 			item.setText(3, tournament.getFullName());
 			item.setText(4, Integer.toString(tournament.getPrizeAmount()));
-			item.setText(5, Integer.toString(tournament.getIncome()));
+			item.setText(5, Double.toString(tournament.getIncome()));
 		}
 	}
 	public Table createTable(Shell shell) {

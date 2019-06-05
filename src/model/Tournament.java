@@ -4,42 +4,38 @@ import java.time.*;
 
 public class Tournament {
 	private String name;
-	//private LocalDate date;
-	private String date;
+	private LocalDate date;
+	// private String date;
 	private String sport;
 	private int prizeAmount;
 	private Winner winner;
 	private String firstName;
 	private String lastName;
-	private int income;
-	private String fullName;
+	private double income;
 
 	public Tournament() {
 		name = "";
 		sport = "";
 		prizeAmount = 0;
-		date = "";
+		date = LocalDate.of(1914, 7, 28);
 		firstName = "";
 		lastName = "";
-		income = 0;
-		fullName = "";
+		income = 1;
 	}
-	/*
+
 	public LocalDate getDate() {
 		return date;
 	}
-	
+
 	public void setDate(LocalDate date) {
 		this.date = date;
 	}
-	*/
-	public String getDate() {
-		return date;
-	}
-	
-	public void setDate(String date) {
-		this.date = date;
-	}
+
+	/*
+	 * public String getDate() { return date; }
+	 * 
+	 * public void setDate(String date) { this.date = date; }
+	 */
 	public String getName() {
 		return name;
 	}
@@ -55,7 +51,7 @@ public class Tournament {
 	public void setSport(String sport) {
 		this.sport = sport;
 	}
-	
+
 	public int getPrizeAmount() {
 		return prizeAmount;
 	}
@@ -63,15 +59,15 @@ public class Tournament {
 	public void setPrizeAmount(int prizeAmount) {
 		this.prizeAmount = prizeAmount;
 	}
-	
+
 	public Winner getWinner() {
 		return winner;
 	}
-	
+
 	public void setWinner(Winner winner) {
 		this.winner = winner;
 	}
-	
+
 	public String getFirstName() {
 		return firstName;
 	}
@@ -89,15 +85,14 @@ public class Tournament {
 	}
 
 	public String getFullName() {
-		return getFirstName() + " " + getLastName() ;
+		return getFirstName() + " " + getLastName();
 	}
-	
-	
-	public int getIncome() {
+
+	public double getIncome() {
 		return income;
 	}
-	
+
 	public void setIncome(int income) {
-		this.income = income;
+		this.income = 0.6 * this.prizeAmount;
 	}
 }

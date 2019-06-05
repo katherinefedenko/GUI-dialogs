@@ -77,7 +77,6 @@ public class FindByPrize {
 				} catch (NumberFormatException ex) {
 					lowerIncome = 0;
 					upperIncome = 0;
-
 				}
 				try {
 					lowerPrize = Integer.parseInt(textLowerPrize.getText());

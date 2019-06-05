@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tournamentList>
-<tournament>
+	<tournament>
 		<name>OpenChamp</name>
-		<date>21.05.2019</date>
+		<date>2016-08-16</date>
 		<sport>Tennis</sport>
 		<prize>1</prize>
 		<winner>
@@ -13,7 +13,7 @@
 	</tournament>
 	<tournament>
 		<name>RusCup</name>
-		<date>21.08.2017</date>
+		<date>2017-08-21</date>
 		<sport>Tennis</sport>
 		<prize>2</prize>
 		<winner>
@@ -24,18 +24,18 @@
 	</tournament>
 	<tournament>
 		<name>FIFA</name>
-		<date>05.07.2018</date>
-		<sport>Футбол</sport>
-		<prize>3</prize>
-		<winner>
-			<firstName>Давид</firstName>
-			<lastName>Гоффен</lastName>
-			<income>3</income>
-		</winner>
+		<date>2018-05-07</date>
+			<sport>Футбол</sport>
+			<prize>3</prize>
+			<winner>
+				<firstName>Давид</firstName>
+				<lastName>Гоффен</lastName>
+				<income>3</income>
+			</winner>
 	</tournament>
 	<tournament>
 		<name>Europe League</name>
-		<date>21.01.2019</date>
+		<date>2019-01-21</date>
 		<sport>Футбол</sport>
 		<prize>4</prize>
 		<winner>
@@ -46,7 +46,7 @@
 	</tournament>
 	<tournament>
 		<name>Худ гимнастика</name>
-		<date>13.02.2019</date>
+		<date>2019-02-13</date>
 		<sport>Гимнастика</sport>
 		<prize>15160</prize>
 		<winner>
@@ -57,7 +57,7 @@
 	</tournament>
 	<tournament>
 		<name>AusOpen</name>
-		<date>27.01.2019</date>
+		<date>2019-01-27</date>
 		<sport>Tennis</sport>
 		<prize>3187190</prize>
 		<winner>
@@ -68,7 +68,7 @@
 	</tournament>
 	<tournament>
 		<name>Aus</name>
-		<date>19.05.2018</date>
+		<date>2018-05-19</date>
 		<sport>Tennis</sport>
 		<prize>3187190</prize>
 		<winner>
@@ -78,9 +78,9 @@
 		</winner>
 	</tournament>
 
-<tournament>
+	<tournament>
 		<name>Олимпийские игры 2006</name>
-		<date>25.01.2016</date>
+		<date>2016-01-25</date>
 		<sport>Биатлон</sport>
 		<prize>1116000</prize>
 		<winner>
@@ -89,10 +89,10 @@
 			<income>6564</income>
 		</winner>
 	</tournament>
-	
+
 	<tournament>
 		<name>AusOpen</name>
-		<date>25.06.2017</date>
+		<date>2017-06-25</date>
 		<sport>Tennis</sport>
 		<prize>1116000</prize>
 		<winner>
@@ -101,10 +101,10 @@
 			<income>7657</income>
 		</winner>
 	</tournament>
-	
+
 	<tournament>
 		<name>Олимпийские игры 2010</name>
-		<date>18.03.2010</date>
+		<date>2010-03-18</date>
 		<sport>Бобслей</sport>
 		<prize>1116000</prize>
 		<winner>
@@ -114,9 +114,9 @@
 		</winner>
 	</tournament>
 
-<tournament>
+	<tournament>
 		<name>Олимпийские игры 2018</name>
-		<date>23.01.2018</date>
+		<date>2018-01-23</date>
 		<sport>Горные лыжи</sport>
 		<prize>452200</prize>
 		<winner>
@@ -125,10 +125,10 @@
 			<income>11</income>
 		</winner>
 	</tournament>
-	
+
 	<tournament>
 		<name>Олимпийские игры 2014</name>
-		<date>23.11.2014</date>
+		<date>2014-11-23</date>
 		<sport>Керлинг</sport>
 		<prize>452200</prize>
 		<winner>
@@ -137,10 +137,10 @@
 			<income>12</income>
 		</winner>
 	</tournament>
-	
+
 	<tournament>
 		<name>USOpen</name>
-		<date>12.04.2019</date>
+		<date>2019-04-12</date>
 		<sport>Tennis</sport>
 		<prize>452200</prize>
 		<winner>
@@ -152,7 +152,7 @@
 
 	<tournament>
 		<name>USOpen</name>
-		<date>21.01.2019</date>
+		<date>2019-01-21</date>
 		<sport>Tennis</sport>
 		<prize>15160</prize>
 		<winner>
@@ -161,6 +161,6 @@
 			<income>14</income>
 		</winner>
 	</tournament>
-	
-	
+
+
 </tournamentList>

@@ -1,5 +1,7 @@
 package view;
 
+import java.time.LocalDate;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -72,7 +74,7 @@ public class AddDisplay {
 		addButton.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent arg0) {
 				String tournament = textTournament.getText();
-				String date = textDate.getText();
+				LocalDate date = LocalDate.parse(textDate.getText());
 				String sport = textSport.getText();
 				String firstName = textFirstName.getText();
 				String lastName = textLastName.getText();

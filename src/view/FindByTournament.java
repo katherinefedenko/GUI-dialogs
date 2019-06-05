@@ -1,5 +1,6 @@
 package view;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.eclipse.swt.SWT;
@@ -50,7 +51,7 @@ public class FindByTournament {
 			public void widgetSelected(SelectionEvent arg0) {
 
 				String tournament = textTournament.getText();
-				String date = textDate.getText();
+				LocalDate date = LocalDate.parse(textDate.getText());
 				List<Tournament> search = controller.findByTournamentName(tournament, date);
 
 				if (search.isEmpty()) {

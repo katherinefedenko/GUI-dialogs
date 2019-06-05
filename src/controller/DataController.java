@@ -2,6 +2,7 @@ package controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +28,7 @@ public class DataController {
 		this.dataBase = dataBase;
 	}
 
-	public void addTournament(String tournament, String sport, int prize, String date, String firstName, String lastName, int income) {
+	public void addTournament(String tournament, String sport, int prize, LocalDate date, String firstName, String lastName, int income) {
 		List<Tournament> addTournament = dataBase.getRecordList();
 		Tournament tour = new Tournament();
 		tour.setName(tournament);
@@ -56,7 +57,7 @@ public class DataController {
 		domParser.write();
 	}
 	
-	public List<Tournament> findByTournamentName(String findTournament, String findDate) {
+	public List<Tournament> findByTournamentName(String findTournament, LocalDate findDate) {
 		List<Tournament> tournamentSearch = new ArrayList<>();
 		for (Tournament tournament : dataBase.getRecordList()) {
 			if (findTournament.equals(tournament.getName()) || findDate.equals(tournament.getDate())) {
