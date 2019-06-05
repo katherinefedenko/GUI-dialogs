@@ -91,7 +91,7 @@ public class FindByPrize {
 				if (search.isEmpty()) {
 					MessageBox messageError = new MessageBox(shell, SWT.ICON_ERROR);
 					messageError.setText("ERROR!");
-					messageError.setMessage("No items accoarding your request");
+					messageError.setMessage("No items accoarding to your request");
 					messageError.open();
 				} else {
 					if (pageRecords == null) {
