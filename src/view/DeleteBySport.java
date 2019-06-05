@@ -39,19 +39,26 @@ public class DeleteBySport {
 			labelSport.setText("Sport:");
 			Text textSport = new Text(shell, SWT.BORDER);
 
-			/*Label labelDate = new Label(shell, SWT.NONE);
-			labelDate.setText("Winner:");
-			Text textDate = new Text(shell, SWT.BORDER);
-			*/
+			Label labelFirstName = new Label(shell, SWT.NONE);
+			labelFirstName.setText("First Name:");
 
+			Text textFirstName = new Text(shell, SWT.BORDER);
+			
+			Label labelLastName = new Label(shell, SWT.NONE);
+			labelLastName.setText("Last Name:");
+
+			Text textLastName = new Text(shell, SWT.BORDER);
+			
 			Button deleteButton = new Button(shell, SWT.PUSH);
 			deleteButton.setText("Delete");
 
 			deleteButton.addSelectionListener(new SelectionAdapter() {
 				public void widgetSelected(SelectionEvent arg0) {
 					String sport = textSport.getText();
+					String firstName = textFirstName.getText();
+					String lastName = textLastName.getText();
 					
-					List<Tournament> search = controller.findBySport(sport);
+					List<Tournament> search = controller.findBySport(sport, firstName, lastName);
 					
 					if (search.isEmpty()) {
 						MessageBox messageError = new MessageBox(shell, SWT.ICON_ERROR);

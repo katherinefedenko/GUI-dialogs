@@ -39,15 +39,31 @@ public class FindBySport {
 		
 		Text textSport = new Text(shell, SWT.BORDER);
 		textSport.setBounds(10, 40, 200, 20);
+		
+		Label labelFirstName = new Label(shell, SWT.NONE);
+		labelFirstName.setText("First Name:");
+		labelFirstName.setBounds(10, 70, 100, 20);
+
+		Text textFirstName = new Text(shell, SWT.BORDER);
+		textFirstName.setBounds(10, 100, 200, 20);
+		
+		Label labelLastName = new Label(shell, SWT.NONE);
+		labelLastName.setText("Last Name:");
+		labelLastName.setBounds(10, 130, 100, 20);
+
+		Text textLastName = new Text(shell, SWT.BORDER);
+		textLastName.setBounds(10, 160, 200, 20);
 
 		Button findButton = new Button(shell, SWT.PUSH);
 		findButton.setText("Find");
-		findButton.setBounds(10, 120, 80, 20);
+		findButton.setBounds(10, 190, 80, 20);
 
 		findButton.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent arg0) {
 				String sport = textSport.getText();
-				List<Tournament> search = controller.findBySport(sport);
+				String firstName = textFirstName.getText();
+				String lastName = textLastName.getText();
+				List<Tournament> search = controller.findBySport(sport, firstName, lastName);
 
 				if (search.isEmpty()) {
 					MessageBox messageError = new MessageBox(shell, SWT.ICON_ERROR);

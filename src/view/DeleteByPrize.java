@@ -35,23 +35,61 @@ public class DeleteByPrize {
 		}
 
 		public void deleteBySport() {
-			Label labelPrize = new Label(shell, SWT.NONE);
-			labelPrize.setText("Prize:");
-			Text textPrize = new Text(shell, SWT.BORDER);
+			Label labelLowerPrize = new Label(shell, SWT.NONE);
+			labelLowerPrize.setText("Lower prize:");
+			labelLowerPrize.setBounds(10, 10, 80, 20);
 
-			/*Label labelDate = new Label(shell, SWT.NONE);
-			labelDate.setText("Winner:");
-			Text textDate = new Text(shell, SWT.BORDER);
-			*/
+			Text textLowerPrize = new Text(shell, SWT.BORDER);
+			textLowerPrize.setBounds(10, 40, 200, 20);
+
+			Label labelUpperPrize = new Label(shell, SWT.NONE);
+			labelUpperPrize.setText("Upper prize:");
+			labelUpperPrize.setBounds(220, 10, 80, 20);
+
+			Text textUpperPrize = new Text(shell, SWT.BORDER);
+			textUpperPrize.setBounds(220, 40, 200, 20);
+
+			Label labelLowerIncome = new Label(shell, SWT.NONE);
+			labelLowerIncome.setText("Lower income:");
+			labelLowerIncome.setBounds(10, 70, 80, 20);
+
+			Text textLowerIncome = new Text(shell, SWT.BORDER);
+			textLowerIncome.setBounds(10, 100, 200, 20);
+
+			Label labelUpperIncome = new Label(shell, SWT.NONE);
+			labelUpperIncome.setText("Upper income:");
+			labelUpperIncome.setBounds(220, 70, 80, 20);
+
+			Text textUpperIncome = new Text(shell, SWT.BORDER);
+			textUpperIncome.setBounds(220, 100, 200, 20);
 
 			Button deleteButton = new Button(shell, SWT.PUSH);
 			deleteButton.setText("Delete");
 
 			deleteButton.addSelectionListener(new SelectionAdapter() {
 				public void widgetSelected(SelectionEvent arg0) {
-					int prize = Integer.parseInt(textPrize.getText());
-					List<Tournament> search = controller.findByPrize(prize);
-					
+					int lowerIncome;
+					int upperIncome;
+					int lowerPrize;
+					int upperPrize;
+					try {
+						lowerIncome = Integer.parseInt(textLowerIncome.getText());
+						upperIncome = Integer.parseInt(textUpperIncome.getText());
+					} catch (NumberFormatException ex) {
+						lowerIncome = 0;
+						upperIncome = 0;
+
+					}
+					try {
+						lowerPrize = Integer.parseInt(textLowerPrize.getText());
+						upperPrize = Integer.parseInt(textUpperPrize.getText());
+					} catch (NumberFormatException ex) {
+						lowerPrize = 0;
+						upperPrize = 0;
+					}
+
+					List<Tournament> search = controller.findByPrize(lowerPrize, upperPrize, lowerIncome, upperIncome);
+
 					if (search.isEmpty()) {
 						MessageBox messageError = new MessageBox(shell, SWT.ICON_ERROR);
 						messageError.setText("ERROR!");
@@ -68,7 +106,10 @@ public class DeleteByPrize {
 						pageRecords.fillTableByPages(mainShell, controller.getListOfTournaments(), mainTable);
 						
 					}
-					textPrize.setText("");
+					textLowerPrize.setText("");
+					textUpperPrize.setText("");
+					textLowerIncome.setText("");
+					textUpperIncome.setText("");
 				}
 
 			});

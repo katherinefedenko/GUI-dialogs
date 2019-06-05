@@ -66,10 +66,10 @@ public class DataController {
 		return tournamentSearch;
 	}
 	
-	public List<Tournament> findBySport(String findSport) {
+	public List<Tournament> findBySport(String findSport, String firstName, String lastName) {
 		List<Tournament> tournamentSearch = new ArrayList<>();
 		for (Tournament tournament : dataBase.getRecordList()) {
-			if (findSport.equals(tournament.getSport())) {
+			if (findSport.equals(tournament.getSport()) || firstName.equals(tournament.getFirstName()) || lastName.equals(tournament.getLastName())) {
 				tournamentSearch.add(tournament);	
 			}
 		}
@@ -77,10 +77,10 @@ public class DataController {
 		
 	}
 	
-	public List<Tournament> findByPrize(int findPrize) {
+	public List<Tournament> findByPrize(int lowerPrize, int upperPrize, int lowerIncome, int upperIncome) {
 		List<Tournament> tournamentSearch = new ArrayList<>();
 		for (Tournament tournament : dataBase.getRecordList()) {
-			if (findPrize == tournament.getPrizeAmount()) {
+			if ((tournament.getPrizeAmount() >= lowerPrize && tournament.getPrizeAmount() <= upperPrize) || (tournament.getIncome() >= lowerIncome && tournament.getIncome() <= upperIncome)) {
 				tournamentSearch.add(tournament);	
 			}
 		}
