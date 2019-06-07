@@ -101,7 +101,7 @@ public class DeleteByPrize {
 						messageError.setText("DONE!");
 						messageError.setMessage(removeTournamentAmount + " record(s) was/were removed");
 						messageError.open();
-						PageRecords pageRecords = new PageRecords(controller);
+						PageRecords pageRecords = new PageRecords();
 						//Table recreateMainTable = pageRecords.createTable(mainShell, mainTable);
 						pageRecords.fillTableByPages(mainShell, controller.getListOfTournaments(), mainTable);
 						

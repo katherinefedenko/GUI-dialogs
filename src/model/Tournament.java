@@ -95,4 +95,7 @@ public class Tournament {
 	public void setIncome(int income) {
 		this.income = 0.6 * this.prizeAmount;
 	}
+	public void setIncome() {
+		this.income = 0.6 * this.prizeAmount;
+	}
 }

@@ -71,12 +71,13 @@ public class DeleteBySport {
 						messageError.setText("DONE!");
 						messageError.setMessage(removeTournamentAmount + " record(s) was/were removed");
 						messageError.open();
-						PageRecords pageRecords = new PageRecords(controller);
-						//Table recreateMainTable = pageRecords.createTable(mainShell, mainTable);
+						PageRecords pageRecords = new PageRecords();
 						pageRecords.fillTableByPages(mainShell, controller.getListOfTournaments(), mainTable);
 						
 					}
 					textSport.setText("");
+					textFirstName.setText("");
+					textLastName.setText("");
 				}
 
 			});

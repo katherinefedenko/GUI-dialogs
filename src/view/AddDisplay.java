@@ -65,10 +65,10 @@ public class AddDisplay {
 		labelPrize.setText("Prize:");
 		Text textPrize = new Text (shell, SWT.BORDER);
 		
-		Label labelIncome = new Label (shell, SWT.NONE);
+		/*Label labelIncome = new Label (shell, SWT.NONE);
 		labelIncome.setText("Income:");
 		Text textIncome = new Text (shell, SWT.BORDER);
-		
+		*/
 		Button addButton = new Button (shell, SWT.PUSH);
 		addButton.setText("Add");
 		addButton.addSelectionListener(new SelectionAdapter() {
@@ -79,10 +79,10 @@ public class AddDisplay {
 				String firstName = textFirstName.getText();
 				String lastName = textLastName.getText();
 				int prize = Integer.parseInt(textPrize.getText());
-				int income = Integer.parseInt(textIncome.getText());
+				//int income = Integer.parseInt(textIncome.getText());
 				
-				controller.addTournament(tournament, sport, prize, date, firstName, lastName, income);
-				pageRecords = new PageRecords(controller);
+				controller.addTournament(tournament, sport, prize, date, firstName, lastName);
+				pageRecords = new PageRecords();
 				pageRecords.fillTableByPages(mainShell, controller.getListOfTournaments(), table);
 				
 				textTournament.setText("");
@@ -91,7 +91,7 @@ public class AddDisplay {
 				textFirstName.setText("");
 				textLastName.setText("");
 				textPrize.setText("");
-				textIncome.setText("");
+				//textIncome.setText("");
 			}
 		});
 		

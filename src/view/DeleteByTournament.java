@@ -65,7 +65,7 @@ public class DeleteByTournament {
 					messageError.setText("DONE!");
 					messageError.setMessage(removeTournamentAmount + " record(s) was/were removed");
 					messageError.open();
-					PageRecords pageRecords = new PageRecords(controller);
+					PageRecords pageRecords = new PageRecords();
 					pageRecords.fillTableByPages(mainShell, controller.getListOfTournaments(), mainTable);
 				}
 				textTournament.setText("");

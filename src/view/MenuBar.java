@@ -27,7 +27,6 @@ public class MenuBar {
 	private DataController controller;
 	private DispalyComponents tableComponent;
 	private Table table;
-	private String[] tableTitles = { "Tournament", "Date", "Sport", "Winner", "Prize", "Income" };
 	private List<Tournament> tournamentList;
 	PageRecords pageRecords;
 
@@ -57,7 +56,7 @@ public class MenuBar {
 				} catch (SAXException | ParserConfigurationException | IOException e1) {
 					e1.printStackTrace();
 				}
-				pageRecords = new PageRecords(controller);
+				pageRecords = new PageRecords();
 				pageRecords.fillTableByPages(shell, controller.getListOfTournaments(), table);
 			}
 		});

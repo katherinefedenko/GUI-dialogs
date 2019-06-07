@@ -4,77 +4,77 @@
 		<name>OpenChamp</name>
 		<date>2016-08-16</date>
 		<sport>Tennis</sport>
-		<prize>1</prize>
+		<prize>10000</prize>
 		<winner>
 			<firstName>Давид</firstName>
 			<lastName>Гоффен</lastName>
-			<income>1</income>
+			<income></income>
 		</winner>
 	</tournament>
 	<tournament>
 		<name>RusCup</name>
 		<date>2017-08-21</date>
 		<sport>Tennis</sport>
-		<prize>2</prize>
+		<prize>20000</prize>
 		<winner>
 			<firstName>Давид</firstName>
 			<lastName>Гоффен</lastName>
-			<income>2</income>
+			<income></income>
 		</winner>
 	</tournament>
 	<tournament>
 		<name>FIFA</name>
 		<date>2018-05-07</date>
 			<sport>Футбол</sport>
-			<prize>3</prize>
+			<prize>3798</prize>
 			<winner>
 				<firstName>Давид</firstName>
 				<lastName>Гоффен</lastName>
-				<income>3</income>
+				<income></income>
 			</winner>
 	</tournament>
 	<tournament>
 		<name>Europe League</name>
 		<date>2019-01-21</date>
 		<sport>Футбол</sport>
-		<prize>4</prize>
+		<prize>46877</prize>
 		<winner>
 			<firstName>Давид</firstName>
 			<lastName>Гоффен</lastName>
-			<income>4</income>
+			<income></income>
 		</winner>
 	</tournament>
 	<tournament>
 		<name>Худ гимнастика</name>
 		<date>2019-02-13</date>
 		<sport>Гимнастика</sport>
-		<prize>15160</prize>
+		<prize>1516</prize>
 		<winner>
 			<firstName>Анастасия</firstName>
 			<lastName>Смирнова</lastName>
-			<income>5</income>
+			<income></income>
 		</winner>
 	</tournament>
 	<tournament>
 		<name>AusOpen</name>
 		<date>2019-01-27</date>
 		<sport>Tennis</sport>
-		<prize>3187190</prize>
+		<prize>318719</prize>
 		<winner>
 			<firstName>Новак</firstName>
 			<lastName>Джокович</lastName>
-			<income>45465</income>
+			<income></income>
 		</winner>
 	</tournament>
 	<tournament>
 		<name>Aus</name>
 		<date>2018-05-19</date>
 		<sport>Tennis</sport>
-		<prize>3187190</prize>
+		<prize>318726</prize>
 		<winner>
 			<firstName>Новак</firstName>
 			<lastName>Джокович</lastName>
-			<income>4242</income>
+			<income></income>
 		</winner>
 	</tournament>
 
@@ -86,7 +86,7 @@
 		<winner>
 			<firstName>Арнд</firstName>
 			<lastName>Пайфффер</lastName>
-			<income>6564</income>
+			<income></income>
 		</winner>
 	</tournament>
 
@@ -94,11 +94,11 @@
 		<name>AusOpen</name>
 		<date>2017-06-25</date>
 		<sport>Tennis</sport>
-		<prize>1116000</prize>
+		<prize>1116789</prize>
 		<winner>
 			<firstName>Таро</firstName>
 			<lastName>Дэниэл</lastName>
-			<income>7657</income>
+			<income></income>
 		</winner>
 	</tournament>
 
@@ -110,7 +110,7 @@
 		<winner>
 			<firstName>Джастин</firstName>
 			<lastName>Криппс</lastName>
-			<income>10</income>
+			<income></income>
 		</winner>
 	</tournament>
 
@@ -118,11 +118,11 @@
 		<name>Олимпийские игры 2018</name>
 		<date>2018-01-23</date>
 		<sport>Горные лыжи</sport>
-		<prize>452200</prize>
+		<prize>452344</prize>
 		<winner>
 			<firstName>Аксель</firstName>
 			<lastName>Лунд</lastName>
-			<income>11</income>
+			<income></income>
 		</winner>
 	</tournament>
 
@@ -130,11 +130,11 @@
 		<name>Олимпийские игры 2014</name>
 		<date>2014-11-23</date>
 		<sport>Керлинг</sport>
-		<prize>452200</prize>
+		<prize>46984</prize>
 		<winner>
 			<firstName>Джон</firstName>
 			<lastName>Шустер</lastName>
-			<income>12</income>
+			<income></income>
 		</winner>
 	</tournament>
 
@@ -142,11 +142,11 @@
 		<name>USOpen</name>
 		<date>2019-04-12</date>
 		<sport>Tennis</sport>
-		<prize>452200</prize>
+		<prize>452255</prize>
 		<winner>
 			<firstName>Денис</firstName>
 			<lastName>Шаповалов</lastName>
-			<income>13</income>
+			<income></income>
 		</winner>
 	</tournament>
 
@@ -154,13 +154,133 @@
 		<name>USOpen</name>
 		<date>2019-01-21</date>
 		<sport>Tennis</sport>
-		<prize>15160</prize>
+		<prize>15130</prize>
 		<winner>
 			<firstName>Давид</firstName>
 			<lastName>Гоффен</lastName>
-			<income>14</income>
+			<income></income>
 		</winner>
 	</tournament>
-
+	<tournament>
+		<name>ЧМ мира</name>
+		<date>2011-08-21</date>
+		<sport>Плавание</sport>
+		<prize>82167</prize>
+		<winner>
+			<firstName>Майкл</firstName>
+			<lastName>Фелпс</lastName>
+			<income></income>
+		</winner>
+	</tournament>
+	<tournament>
+		<name>ЧМ мира</name>
+		<date>2017-09-06</date>
+		<sport>Синхр плавание</sport>
+		<prize>15166</prize>
+		<winner>
+			<firstName>Наталья</firstName>
+			<lastName>Ищенко</lastName>
+			<income></income>
+		</winner>
+	</tournament>
+	<tournament>
+		<name>ЧМ мира</name>
+		<date>2019-01-21</date>
+		<sport>Прыжки в воду</sport>
+		<prize>168167</prize>
+		<winner>
+			<firstName>Иван</firstName>
+			<lastName>Троп</lastName>
+			<income></income>
+		</winner>
+	</tournament>
+	<tournament>
+		<name>ЧМ мира</name>
+		<date>2016-08-23</date>
+		<sport>Хай-дайвинг</sport>
+		<prize>23198</prize>
+		<winner>
+			<firstName>Анастасия</firstName>
+			<lastName>Давыдова</lastName>
+			<income></income>
+		</winner>
+	</tournament>
+	<tournament>
+		<name>ЧМ мира</name>
+		<date>2015-06-11</date>
+		<sport>Водное поло</sport>
+		<prize>45195</prize>
+		<winner>
+			<firstName>Светлана</firstName>
+			<lastName>Ромашина</lastName>
+			<income></income>
+		</winner>
+	</tournament>
+	<tournament>
+		<name>RusCup</name>
+		<date>2015-08-21</date>
+		<sport>Tennis</sport>
+		<prize>30000</prize>
+		<winner>
+			<firstName>Иван</firstName>
+			<lastName>Иванов</lastName>
+			<income></income>
+		</winner>
+	</tournament>
+	<tournament>
+		<name>FIFA</name>
+		<date>2016-05-07</date>
+			<sport>Футбол</sport>
+			<prize>3798</prize>
+			<winner>
+				<firstName>Мисси</firstName>
+				<lastName>Гоффен</lastName>
+				<income></income>
+			</winner>
+	</tournament>
+	<tournament>
+		<name>Худ гимнастика</name>
+		<date>2017-02-13</date>
+		<sport>Гимнастика</sport>
+		<prize>1516</prize>
+		<winner>
+			<firstName>Анастасия</firstName>
+			<lastName>Смирнова</lastName>
+			<income></income>
+		</winner>
+	</tournament>
+	<tournament>
+		<name>AusOpen</name>
+		<date>2016-01-27</date>
+		<sport>Tennis</sport>
+		<prize>318719</prize>
+		<winner>
+			<firstName>Новак</firstName>
+			<lastName>Джокович</lastName>
+			<income></income>
+		</winner>
+	</tournament>
+	<tournament>
+		<name>ЧМ мира</name>
+		<date>2017-01-11</date>
+		<sport>Прыжки в воду</sport>
+		<prize>168167</prize>
+		<winner>
+			<firstName>Иан</firstName>
+			<lastName>Троп</lastName>
+			<income></income>
+		</winner>
+	</tournament>
+	<tournament>
+		<name>ЧМ мира</name>
+		<date>2011-08-23</date>
+		<sport>Хай-дайвинг</sport>
+		<prize>23198</prize>
+		<winner>
+			<firstName>Мария</firstName>
+			<lastName>Давыдова</lastName>
+			<income></income>
+		</winner>
+	</tournament>
 
 </tournamentList>
